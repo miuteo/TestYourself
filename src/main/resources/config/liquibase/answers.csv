@@ -1,5 +1,5 @@
 VARIANT|IS_CORECT|CONTENT|QUESTION_ID
-A|0|Success|1
+A|1|Success|1
 B|0|Failure|1
 C|0|The hashCode() method fails to compile.|1
 D|0|The equals() method fails to compile.|1
