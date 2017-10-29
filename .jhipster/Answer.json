@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "question",
+            "otherEntityName": "question",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "variant",
+            "fieldType": "Variant",
+            "fieldValues": "A,B,C,D,E,F,G",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "isCorect",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20171028081424",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "answer",
+    "jpaMetamodelFiltering": false,
+    "pagination": "infinite-scroll"
+}

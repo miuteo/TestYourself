@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "chapter",
+            "otherEntityName": "chapter",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "content",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "explanation",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171028080838",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "question",
+    "jpaMetamodelFiltering": false,
+    "pagination": "infinite-scroll"
+}
