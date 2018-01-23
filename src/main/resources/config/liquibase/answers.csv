@@ -1,8 +1,38 @@
 VARIANT|IS_CORECT|CONTENT|QUESTION_ID
-A|1|Success|1
-B|0|Failure|1
-C|0|The hashCode() method fails to compile.|1
-D|0|The equals() method fails to compile.|1
-E|0|Another line of code fails to compile.|1
-F|0|A runtime exception is thrown.|1
+A|1|Success|101
+B|0|Failure|101
+C|0|The hashCode() method fails to compile.|101
+D|0|The equals() method fails to compile.|101
+E|0|Another line of code fails to compile.|101
+F|0|A runtime exception is thrown.|101
+A|0|If equals(null) is called, the method should throw an exception.|115
+B|1|If equals(null) is called, the method should return false.|115
+C|0|If equals(null) is called, the method should return true.|115
+D|0|If equals() is passed the wrong type, the method should throw an exception.|115
+E|1|If equals() is passed the wrong type, the method should return false.|115
+F|0|If equals() is passed the wrong type, the method should return true.|115
+A|1|A reference to an object may be cast to a subclass of the object without an explicit cast.|215
+B|1|If a method takes a class that is the superclass of three different object references, then any of those objects may be passed as a parameter to the method.|215
+C|1|A reference to an object may be cast to a superclass of the object without an explicit cast.|215
+D|0|All cast exceptions can be detected at compile time.|215
+E|0|By defining a public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime.|215
+A|0|0|315
+B|0|1|315
+C|0|2|315
+D|1|The result is undefined.|315
+E|0|The code does not compile|315
+F|0|A runtime exception is thrown|315
+A|0|One|615
+B|1|Two|615
+C|0|Three|615
+D|0|Four|615
+E|1|Five|615
+F|0|Six|615
+A|0|a -> {return 10;}|715
+B|0|() -> {String s = "";}|715
+C|1|() -> 5|715
+D|0|() -> {return null}|715
+E|1|() -> "The" + "Zoo"|715
+F|0|(int count) -> count+1|715
+G|1|() -> {System.out.println("Giraffe"); return 10;}|715
 
