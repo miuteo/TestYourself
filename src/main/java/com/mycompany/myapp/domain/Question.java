@@ -6,6 +6,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -31,6 +32,11 @@ public class Question implements Serializable {
 
     @ManyToOne
     private Chapter chapter;
+
+
+//
+//    @OneToMany(targetEntity = Answer.class,fetch = FetchType.EAGER,mappedBy = "QUESTION_ID")
+//    private List<Answer> answerList;
 
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
     public Long getId() {
@@ -79,6 +85,13 @@ public class Question implements Serializable {
     public void setChapter(Chapter chapter) {
         this.chapter = chapter;
     }
+//    public List<Answer> getAnswerList() {
+//        return answerList;
+//    }
+//
+//    public void setAnswerList(List<Answer> answerList) {
+//        this.answerList = answerList;
+//    }
     // jhipster-needle-entity-add-getters-setters - Jhipster will add getters and setters here, do not remove
 
     @Override

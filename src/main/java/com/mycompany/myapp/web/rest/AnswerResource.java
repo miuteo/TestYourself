@@ -23,6 +23,7 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * REST controller for managing Answer.
@@ -97,6 +98,20 @@ public class AnswerResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/answers");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
+
+    @GetMapping("/answers/answersByQuestionID/{questionID}")
+    @Timed
+    public ResponseEntity<List<Answer>> getAllAnswersByQuestionID(@PathVariable long questionID) {
+        log.debug("REST request to get a page of Answers");
+        List<Answer> answers = answerRepository.findByQuestionId(questionID);
+        return ResponseEntity.ok()
+        .body(answers.stream().map(x->{
+                x.setIsCorect(true);
+                return x;
+            }
+            ).collect(Collectors.toList()));
+    }
+
 
     /**
      * GET  /answers/:id : get the "id" answer.
