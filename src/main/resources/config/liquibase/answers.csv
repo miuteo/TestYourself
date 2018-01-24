@@ -35,4 +35,43 @@ D|0|() -> {return null}|715
 E|1|() -> "The" + "Zoo"|715
 F|0|(int count) -> count+1|715
 G|1|() -> {System.out.println("Giraffe"); return 10;}|715
+A|0|Inner in = new Inner();|116
+B|0|Inner in = Outer.new Inner();|116
+C|0|Outer.Inner in = new Outer.Inner();|116
+D|0|Outer.Inner in = new Outer().Inner();|116
+E|1|Outer.Inner in = new Outer().new Inner();|116
+F|0|Outer.Inner in = Outer.new Inner();|116
+A|0|It compiles and runs without issue.|216
+B|0|The code will not compile because of line 2.|216
+C|0|The code will not compile because of line 3.|216
+D|0|The code will not compile because of line 4.|216
+E|0|The code will not compile because of lines 2 and 3.|216
+F|1|The code will not compile because of lines 3 and 4.|216
+A|1|Comparable is in the java.util package.|316
+B|1|Comparator is in the java.util package.|316
+C|0|compare() is in the Comparable interface.|316
+D|1|compare() is in the Comparator interface.|316
+E|0|compare() takes one method parameter.|316
+F|1|compare() takes two method parameters.|316
+A|0|{} {}|416
+B|0|{} {false=[], true=[]}|416
+C|1|{false=[], true=[]} {}|416
+D|0|{false=[], true=[]} {false=[], true=[]}|416
+E|0|The code does not compile.|416
+F|0|An exception is thrown.|416
+A|0|TWF|616
+B|0|TWDF|616
+C|1|TWDEF|616
+D|0|TWF followed by an exception|616
+E|0|TWDF followed by an exception|616
+F|0|TWEF followed by an exception|616
+G|0|The code does not compile.|616
+A|0|It compiles and outputs the two numbers, followed by Printed.|716
+B|0|The code will not compile because of line b1.|716
+C|0|The code will not compile because of line b2.|716
+D|0|The code will not compile because of line b3.|716
+E|0|The code will not compile because of line b4.|716
+F|1|It compiles but the output cannot be determined ahead of time.|716
+G|0|It compiles but throws an exception at runtime.|716
+H|1|It compiles but waits forever at runtime.|716
 
