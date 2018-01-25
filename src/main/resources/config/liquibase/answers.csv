@@ -74,4 +74,34 @@ E|0|The code will not compile because of line b4.|716
 F|1|It compiles but the output cannot be determined ahead of time.|716
 G|0|It compiles but throws an exception at runtime.|716
 H|1|It compiles but waits forever at runtime.|716
+A|0|Compiler error on line 2.|117
+B|1|Compiler error on line 3.|117
+C|1|Compiler error on line 5.|117
+D|0|Compiler error on line 8.|117
+E|0|Compiler error on line 12.|117
+F|0|Compiler error on another line.|117
+G|0|The code compiles successfully.|117
+A|0|All instance variables are marked final.|217
+B|1|boolean instance variables are accessed with is or get.|217
+C|1|All instance variables are marked private.|217
+D|0|They implement the JavaBean interface.|217
+E|0|Variables are created using lazy instantiation.|217
+F|1|The first letter of the any getter/setter, after the get, set, or is prefix, must be uppercase.|217
+A|0|On line 1, fill in with <>.|317
+B|1|On line 1, fill in with <T>.|317
+C|0|On line 1, fill in with <?>.|317
+D|1|On line 3, fill in with <>.|317
+E|0|On line 3, fill in with <T>.|317
+F|0|On line 3, fill in with <?>.|317
+A|0|BiFunction<Integer> f = x -> x*x;|417
+B|0|BiFunction<Integer, Integer> f = x -> x*x;|417
+C|0|BinaryOperator<Integer, Integer> f = x -> x*x;|417
+D|0|Function<Integer> f = x -> x*x;|417
+E|1|Function<Integer, Integer> f = x -> x*x;|417
+F|0|None of the above|417
+A|1|AutoCloseable|617
+B|1|Closeable|617
+C|0|Exception|617
+D|0|RuntimeException|617
+E|0|Serializable|617
 
