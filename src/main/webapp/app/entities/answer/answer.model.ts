@@ -7,7 +7,8 @@ export const enum Variant {
     'D',
     'E',
     'F',
-    'G'
+    'G',
+    'H'
 }
 
 export class Answer implements BaseEntity {

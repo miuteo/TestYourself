@@ -26,7 +26,7 @@
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let question of questions ;trackBy: trackId">
                 <td><a [routerLink]="['../question', question.id ]">{{question.id}}</a></td>
-                <td [innerHTML]="replaceAll(question.content,' ','&nbsp')"></td>
+                <td [innerHTML]="question.content"></td>
                 <td>{{question.explanation}}</td>
                 <td>
                     <div *ngIf="question.chapter">
