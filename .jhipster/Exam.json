@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "exam"
+        },
+        {
+            "relationshipName": "userAnswer",
+            "otherEntityName": "userAnswer",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "exam"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "score",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "totalScore",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "created",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "lastModifiedDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180127144555",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "exam",
+    "jpaMetamodelFiltering": false,
+    "pagination": "infinite-scroll"
+}

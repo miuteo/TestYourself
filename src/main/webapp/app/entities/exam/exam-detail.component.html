@@ -1,0 +1,41 @@
+
+<div *ngIf="exam">
+    <h2><span>Exam</span> {{exam.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Score</span></dt>
+        <dd>
+            <span>{{exam.score}}</span>
+        </dd>
+        <dt><span>Total Score</span></dt>
+        <dd>
+            <span>{{exam.totalScore}}</span>
+        </dd>
+        <dt><span>Created</span></dt>
+        <dd>
+            <span>{{exam.created | date:'medium'}}</span>
+        </dd>
+        <dt><span>Last Modified Date</span></dt>
+        <dd>
+            <span>{{exam.lastModifiedDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{exam.user?.login}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'exam/'+ exam.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "question",
+            "otherEntityName": "question",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "userAnswer"
+        },
+        {
+            "relationshipName": "userVariant",
+            "otherEntityName": "userVariant",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "userAnswer"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20180127135156",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "user_answer",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

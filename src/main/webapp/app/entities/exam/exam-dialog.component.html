@@ -1,0 +1,62 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myExamLabel">Create or edit a Exam</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!exam.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="exam.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_score">Score</label>
+            <input type="number" class="form-control" name="score" id="field_score"
+                [(ngModel)]="exam.score"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_totalScore">Total Score</label>
+            <input type="number" class="form-control" name="totalScore" id="field_totalScore"
+                [(ngModel)]="exam.totalScore"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_created">Created</label>
+            <div class="d-flex">
+                <input id="field_created" type="datetime-local" class="form-control" name="created" [(ngModel)]="exam.created"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lastModifiedDate">Last Modified Date</label>
+            <div class="d-flex">
+                <input id="field_lastModifiedDate" type="datetime-local" class="form-control" name="lastModifiedDate" [(ngModel)]="exam.lastModifiedDate"
+                  />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="exam.user"  required>
+                <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option>
+                <option [ngValue]="userOption.id === exam.user?.id ? exam.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.user?.errors?.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

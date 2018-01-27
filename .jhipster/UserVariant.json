@@ -1,0 +1,17 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "variant",
+            "fieldType": "Variant",
+            "fieldValues": "A,B,C,D,E,F,G,H"
+        }
+    ],
+    "changelogDate": "20180127134051",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "user_variant",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}
