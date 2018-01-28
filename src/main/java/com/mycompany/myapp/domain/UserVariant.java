@@ -1,5 +1,6 @@
 package com.mycompany.myapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -28,6 +29,7 @@ public class UserVariant implements Serializable {
     private Variant variant;
 
     @ManyToOne
+    @JsonIgnore
     private UserAnswer userAnswer;
 
 

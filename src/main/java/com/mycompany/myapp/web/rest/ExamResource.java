@@ -3,7 +3,11 @@ package com.mycompany.myapp.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Exam;
 
-import com.mycompany.myapp.repository.ExamRepository;
+import com.mycompany.myapp.domain.Question;
+import com.mycompany.myapp.domain.UserAnswer;
+import com.mycompany.myapp.repository.*;
+import com.mycompany.myapp.security.SecurityUtils;
+import com.mycompany.myapp.service.util.RandomUtil;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import com.mycompany.myapp.web.rest.util.PaginationUtil;
 import io.swagger.annotations.ApiParam;
@@ -17,12 +21,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
+import javax.ws.rs.core.UriBuilderException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import java.util.List;
-import java.util.Optional;
+import java.time.Instant;
+import java.util.*;
 
 /**
  * REST controller for managing Exam.
@@ -36,9 +42,15 @@ public class ExamResource {
     private static final String ENTITY_NAME = "exam";
 
     private final ExamRepository examRepository;
+    private final UserRepository userRepository;
+    private final QuestionRepository questionRepository;
+    private final UserAnswerRepository userAnswerRepository;
 
-    public ExamResource(ExamRepository examRepository) {
+    public ExamResource(ExamRepository examRepository,UserRepository userRepository,QuestionRepository questionRepository,UserAnswerRepository userAnswerRepository) {
         this.examRepository = examRepository;
+        this.userRepository = userRepository;
+        this.questionRepository = questionRepository;
+        this.userAnswerRepository = userAnswerRepository;
     }
 
     /**
@@ -60,6 +72,38 @@ public class ExamResource {
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
+    @PostMapping("/newExam")
+    @Timed
+    public ResponseEntity<Exam> generateExam()throws URISyntaxException{
+        log.debug("REST request to generate new exam");
+        Exam newExam = new Exam();
+        String loginName = SecurityUtils.getCurrentUserLogin();
+        newExam.setUser(userRepository.findOneByLogin(loginName).orElse(null));
+        Set<Long> chapters = new HashSet<>();
+        chapters.add(1L);
+        chapters.add(2L);
+        chapters.add(3L);
+        chapters.add(4L);
+        chapters.add(6L);
+        chapters.add(7L);
+
+        for(Long chapterID: chapters){
+            UserAnswer userAnswer = new UserAnswer();
+            List<Question> questions = questionRepository.findByChapterId(chapterID);
+            int winnerID = new Random().nextInt(questions.size());
+            userAnswer.setQuestion(questions.get(winnerID));
+            newExam.addUserAnswer(userAnswer);
+        }
+        newExam.setCreated(Instant.now());
+        Exam result = examRepository.save(newExam);
+        userAnswerRepository.save(result.getUserAnswers());
+        return ResponseEntity.created(new URI("/api/exams/" + newExam.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME,""
+                +result.getId().toString()
+            ))
+            .body(newExam);
+    }
+
 
     /**
      * PUT  /exams : Updates an existing exam.

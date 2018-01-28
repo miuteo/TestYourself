@@ -30,8 +30,8 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="created" type="timestamp">
-                <constraints nullable="true" />
+            <column name="created" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
             </column>
 
             <column name="last_modified_date" type="timestamp">
@@ -46,7 +46,7 @@
         </createTable>
         <dropDefaultValue tableName="exam" columnName="created" columnDataType="datetime"/>
         <dropDefaultValue tableName="exam" columnName="last_modified_date" columnDataType="datetime"/>
-        
+
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>

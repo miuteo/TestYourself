@@ -29,11 +29,12 @@ public class UserAnswer implements Serializable {
     private Question question;
 
     @OneToMany(mappedBy = "userAnswer")
-    @JsonIgnore
+//    @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<UserVariant> userVariants = new HashSet<>();
 
     @ManyToOne
+    @JsonIgnore
     private Exam exam;
 
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove

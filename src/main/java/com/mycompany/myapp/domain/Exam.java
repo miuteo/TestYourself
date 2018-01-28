@@ -43,7 +43,7 @@ public class Exam implements Serializable {
     private User user;
 
     @OneToMany(mappedBy = "exam")
-    @JsonIgnore
+//    @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<UserAnswer> userAnswers = new HashSet<>();
 
