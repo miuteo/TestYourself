@@ -149,10 +149,12 @@ public class ExamResource {
      * @return the ResponseEntity with status 200 (OK) and with body the exam, or with status 404 (Not Found)
      */
     @GetMapping("/exams/{id}")
+    @Transactional
     @Timed
     public ResponseEntity<Exam> getExam(@PathVariable Long id) {
         log.debug("REST request to get Exam : {}", id);
         Exam exam = examRepository.findOne(id);
+        log.debug(exam.getUserAnswers().toString());
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(exam));
     }
 
