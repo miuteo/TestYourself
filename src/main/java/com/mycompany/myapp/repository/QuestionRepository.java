@@ -1,6 +1,7 @@
 package com.mycompany.myapp.repository;
 
 import com.mycompany.myapp.domain.Question;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import org.springframework.data.jpa.repository.*;
@@ -15,5 +16,6 @@ import java.util.Set;
 @SuppressWarnings("unused")
 @Repository
 public interface QuestionRepository extends JpaRepository<Question, Long> {
+    @Cacheable("questionsByChapter")
     List<Question> findByChapterId(Long id);
 }
