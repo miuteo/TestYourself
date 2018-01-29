@@ -1,12 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs/Rx';
+import {Observable, Subscription} from 'rxjs/Rx';
 import { JhiEventManager, JhiParseLinks, JhiPaginationUtil, JhiAlertService } from 'ng-jhipster';
 
 import { Exam } from './exam.model';
 import { ExamService } from './exam.service';
 import { ITEMS_PER_PAGE, Principal, ResponseWrapper } from '../../shared';
 import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
+import {Response} from "@angular/http";
 
 @Component({
     selector: 'jhi-exam',
@@ -96,6 +97,26 @@ export class ExamComponent implements OnInit, OnDestroy {
         for (let i = 0; i < data.length; i++) {
             this.exams.push(data[i]);
         }
+    }
+    private subscribeToSaveResponse(result: Observable<Exam>) {
+        result.subscribe((res: Exam) =>
+            this.onSaveSuccess(res), (res: Response) => this.onSaveError());
+    }
+    newExam() {
+        // this.isSaving = true;
+
+        this.subscribeToSaveResponse(
+            this.examService.generateNewExam());
+
+    }
+    private onSaveSuccess(result: Exam) {
+        this.eventManager.broadcast({ name: 'examListModification', content: 'OK'});
+        // this.isSaving = false;
+
+    }
+
+    private onSaveError() {
+        // this.isSaving = false;
     }
 
     private onError(error) {

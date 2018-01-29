@@ -23,6 +23,13 @@ export class ExamService {
             return jsonResponse;
         });
     }
+    generateNewExam(): Observable<Exam> {
+        return this.http.post(SERVER_API_URL+'api/newExam','').map((res: Response) => {
+            const jsonResponse = res.json();
+            this.convertItemFromServer(jsonResponse);
+            return jsonResponse;
+        });
+    }
 
     update(exam: Exam): Observable<Exam> {
         const copy = this.convert(exam);
