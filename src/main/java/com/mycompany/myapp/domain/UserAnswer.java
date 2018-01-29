@@ -24,8 +24,7 @@ public class UserAnswer implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Question question;
 
     @OneToMany(mappedBy = "userAnswer")
