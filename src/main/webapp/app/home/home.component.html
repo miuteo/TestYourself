@@ -10,7 +10,14 @@
             <div class="alert alert-success" *ngSwitchCase="true">
                 <span *ngIf="account"
                    > You are logged in as user "{{account.login}}". </span>
+
             </div>
+            <button class="btn btn-primary jh-create-entity create-exam" [routerLink]="['/', { outlets: { popup: ['exam-new'] } }]" *ngSwitchCase="true">
+                <span class="fa fa-plus"></span>
+                <span >
+                    Begin Test!
+                    </span>
+            </button>
 
             <div class="alert alert-warning" *ngSwitchCase="false">
                 <span>If you want to </span>
