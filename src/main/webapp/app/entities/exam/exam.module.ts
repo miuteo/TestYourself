@@ -12,6 +12,8 @@ import {
     ExamPopupComponent,
     ExamDeletePopupComponent,
     ExamDeleteDialogComponent,
+    ExamGeneratePopupComponent,
+    ExamGenerateDialogComponent,
     examRoute,
     examPopupRoute,
 } from './';
@@ -32,15 +34,19 @@ const ENTITY_STATES = [
         ExamDetailComponent,
         ExamDialogComponent,
         ExamDeleteDialogComponent,
+        ExamGenerateDialogComponent,
         ExamPopupComponent,
         ExamDeletePopupComponent,
+        ExamGeneratePopupComponent,
     ],
     entryComponents: [
         ExamComponent,
         ExamDialogComponent,
         ExamPopupComponent,
         ExamDeleteDialogComponent,
+        ExamGenerateDialogComponent,
         ExamDeletePopupComponent,
+        ExamGeneratePopupComponent
     ],
     providers: [
         ExamService,

@@ -8,6 +8,7 @@ import { ExamComponent } from './exam.component';
 import { ExamDetailComponent } from './exam-detail.component';
 import { ExamPopupComponent } from './exam-dialog.component';
 import { ExamDeletePopupComponent } from './exam-delete-dialog.component';
+import {ExamGenerateDialogComponent, ExamGeneratePopupComponent} from "./exam-generate-dialog.component";
 
 export const examRoute: Routes = [
     {
@@ -53,6 +54,16 @@ export const examPopupRoute: Routes = [
     {
         path: 'exam/:id/delete',
         component: ExamDeletePopupComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'Exams'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    },
+    {
+        path: 'exam-generate',
+        component: ExamGeneratePopupComponent,
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'Exams'

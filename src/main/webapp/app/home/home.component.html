@@ -1,3 +1,4 @@
+<jhi-alert></jhi-alert>
 <div class="row">
     <div class="col-md-3">
         <span class="hipster img-fluid rounded"></span>
@@ -12,7 +13,7 @@
                    > You are logged in as user "{{account.login}}". </span>
 
             </div>
-            <button class="btn btn-primary jh-create-entity create-exam" [routerLink]="['/', { outlets: { popup: ['exam-new'] } }]" *ngSwitchCase="true">
+            <button class="btn btn-primary jh-create-entity create-exam" [routerLink]="['/', { outlets: { popup: ['exam-generate'] } }]" *ngSwitchCase="true">
                 <span class="fa fa-plus"></span>
                 <span >
                     Begin Test!
