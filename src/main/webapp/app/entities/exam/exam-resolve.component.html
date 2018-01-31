@@ -5,10 +5,12 @@
     <dl class="row-md jh-entity-details">
         <table class="table table-striped">
             <tbody>
-            <tr *ngFor="let question of exam.userAnswers ;trackBy: trackId">
-                <td><a [routerLink]="['../question', question.id ]">{{question.id}}</a></td>
+            <tr *ngFor="let userAnswer of exam.userAnswers ">
+                <td [innerHTML]="userAnswer.question.content"></td>
+                <span *ngFor="let answer of userAnswer.question.answerList">
+                   {{answer.variant}}. {{answer.content}}<br/>
+                </span>
 
-                <td [innerHTML]="question.content"></td>
             </tr>
             </tbody>
         </table>

@@ -1,4 +1,5 @@
 import { BaseEntity, User } from './../../shared';
+import {UserAnswer} from "../user-answer/user-answer.model";
 
 export class Exam implements BaseEntity {
     constructor(
@@ -8,7 +9,7 @@ export class Exam implements BaseEntity {
         public created?: any,
         public lastModifiedDate?: any,
         public user?: User,
-        public userAnswers?: BaseEntity[],
+        public userAnswers?: UserAnswer[],
     ) {
     }
 }
