@@ -17,7 +17,7 @@ import {
     examRoute,
     examPopupRoute,
 } from './';
-import {ExamResolveComponent} from "./exam-resolve.component";
+import {ExamResolveComponent} from './exam-resolve.component';
 
 const ENTITY_STATES = [
     ...examRoute,

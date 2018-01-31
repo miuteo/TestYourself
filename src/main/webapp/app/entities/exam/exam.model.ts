@@ -1,5 +1,5 @@
 import { BaseEntity, User } from './../../shared';
-import {UserAnswer} from "../user-answer/user-answer.model";
+import {UserAnswer} from '../user-answer/user-answer.model';
 
 export class Exam implements BaseEntity {
     constructor(

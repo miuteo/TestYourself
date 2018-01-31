@@ -101,7 +101,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
     private onError(error) {
         this.alertService.error(error.message, null, null);
     }
-    private  replaceAll(target,search,replacement){
+    private  replaceAll(target, search, replacement) {
 
         return target.replace(new RegExp(search, 'g'), replacement);
     }

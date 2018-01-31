@@ -7,7 +7,7 @@ import { Exam } from './exam.model';
 import { ExamService } from './exam.service';
 import { ITEMS_PER_PAGE, Principal, ResponseWrapper } from '../../shared';
 import { PaginationConfig } from '../../blocks/config/uib-pagination.config';
-import {Response} from "@angular/http";
+import {Response} from '@angular/http'  ;
 
 @Component({
     selector: 'jhi-exam',

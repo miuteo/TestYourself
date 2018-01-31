@@ -1,6 +1,6 @@
 import { BaseEntity } from './../../shared';
-import {Chapter} from "../chapter";
-import {Answer} from "../answer";
+import {Chapter} from '../chapter';
+import {Answer} from '../answer';
 
 export class Question implements BaseEntity {
     constructor(
@@ -8,7 +8,7 @@ export class Question implements BaseEntity {
         public content?: string,
         public explanation?: string,
         public chapter?: Chapter,
-        public answerList?:Answer[],
+        public answerList?: Answer[],
     ) {
     }
 }

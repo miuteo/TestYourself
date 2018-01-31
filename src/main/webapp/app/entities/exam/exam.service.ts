@@ -24,7 +24,7 @@ export class ExamService {
         });
     }
     generateNewExam(): Observable<Exam> {
-        return this.http.post(SERVER_API_URL+'api/newExam','').map((res: Response) => {
+        return this.http.post(SERVER_API_URL + 'api/newExam', '').map((res: Response) => {
             const jsonResponse = res.json();
             this.convertItemFromServer(jsonResponse);
             return jsonResponse;
