@@ -1,5 +1,6 @@
 package com.mycompany.myapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -37,6 +38,7 @@ public class Answer implements Serializable {
     private String content;
 
     @ManyToOne
+    @JsonIgnore
     private Question question;
 
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
