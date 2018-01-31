@@ -7,3 +7,4 @@ export * from './exam-generate-dialog.component';
 export * from './exam-detail.component';
 export * from './exam.component';
 export * from './exam.route';
+export * from './exam-resolve.component';
