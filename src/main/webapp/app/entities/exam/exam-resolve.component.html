@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Mock Exam</h1>
-</body>
-</html>
+<div *ngIf="exam">
+    <h2><span>Exam</span> {{exam.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+    </dl>
+</div>
+
