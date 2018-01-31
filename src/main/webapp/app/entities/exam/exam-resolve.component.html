@@ -3,6 +3,15 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
+        <table class="table table-striped">
+            <tbody>
+            <tr *ngFor="let question of exam.userAnswers ;trackBy: trackId">
+                <td><a [routerLink]="['../question', question.id ]">{{question.id}}</a></td>
+
+                <td [innerHTML]="question.content"></td>
+            </tr>
+            </tbody>
+        </table>
     </dl>
 </div>
 
