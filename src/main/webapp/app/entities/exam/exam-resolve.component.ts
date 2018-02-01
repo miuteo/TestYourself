@@ -3,6 +3,7 @@ import {Exam} from './exam.model';
 import {ExamService} from './exam.service';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Rx';
+import {UserAnswer} from '../user-answer';
 
 @Component({
     selector : 'jhi-exam-resolve',
@@ -10,6 +11,7 @@ import {Subscription} from 'rxjs/Rx';
 })
 export class ExamResolveComponent implements OnInit {
     exam: Exam;
+    currentUserAnswer: UserAnswer;
     private subscription: Subscription;
 
     constructor(
@@ -27,7 +29,18 @@ export class ExamResolveComponent implements OnInit {
     load(id) {
         this.examService.find(id).subscribe( (exam) => {
             this.exam = exam;
+            this.currentUserAnswer = this.exam.userAnswers[0];
+
+            console.log(this.exam);
         });
-        console.log(this.exam);
+
+    }
+    nextQuestion() {
+        var index: number;
+        index = this.exam.userAnswers.indexOf(this.currentUserAnswer) + 1;
+        if(index>this.exam.userAnswers.length){
+            index=0;
+        }
+        this.currentUserAnswer  = this.exam.userAnswers[index];
     }
 }
