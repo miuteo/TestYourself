@@ -4,6 +4,7 @@ import {ExamService} from './exam.service';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Rx';
 import {UserAnswer} from '../user-answer';
+import {Answer} from '../answer';
 
 @Component({
     selector : 'jhi-exam-resolve',
@@ -42,5 +43,8 @@ export class ExamResolveComponent implements OnInit {
             index=0;
         }
         this.currentUserAnswer  = this.exam.userAnswers[index];
+    }
+    negateIsCorect(answer: Answer){
+        answer.isCorect = !answer.isCorect;
     }
 }
