@@ -1,5 +1,5 @@
 <div *ngIf="exam">
-    <h2><span>Exam</span> {{exam.id}}</h2>
+    <h2><span>Question #</span> {{exam.userAnswers.indexOf(currentUserAnswer)+1}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <!--<dl class="row-md jh-entity-details">-->
@@ -35,7 +35,7 @@
                 </tr>
                 </tbody>
             </table>
-            <button class="btn btn-primary create-exam" *ngIf="currentAnswers.size>0" (click)="nextQuestion()">
+            <button class="btn btn-primary create-exam" *ngIf="isAnswerSelected" (click)="nextQuestion()">
                 <span >
                     Next question
                     </span>

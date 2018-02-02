@@ -5,7 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Rx';
 import {UserAnswer} from '../user-answer';
 import {Answer} from '../answer';
-import {Variant} from "../answer";
+import {Variant} from '../answer';
 
 @Component({
     selector : 'jhi-exam-resolve',
@@ -15,7 +15,8 @@ export class ExamResolveComponent implements OnInit {
     exam: Exam;
     currentUserAnswer: UserAnswer;
     private subscription: Subscription;
-    currentAnswers : Map<number,Variant>;
+    currentAnswers: Map<number, Variant>;
+    isAnswerSelected: boolean;
 
     constructor(
         private examService: ExamService,
@@ -39,24 +40,38 @@ export class ExamResolveComponent implements OnInit {
 
     }
     nextQuestion() {
-        var index: number;
+        this.isAnswerSelected = false;
+        let index: number;
         index = this.exam.userAnswers.indexOf(this.currentUserAnswer) + 1;
-        if(index>this.exam.userAnswers.length){
-            index=0;
+        if (index >= this.exam.userAnswers.length) {
+            index = 0;
         }
         this.currentUserAnswer  = this.exam.userAnswers[index];
+        this.isAnswerSelected = this.isAnyAnswerSelected();
     }
     negateIsCorect(answer: Answer) {
 
-        if(this.currentAnswers.has(answer.id)){
+        if (this.currentAnswers.has(answer.id)) {
             this.currentAnswers.delete(answer.id);
-        }else{
-            this.currentAnswers.set(answer.id,answer.variant);
+            this.isAnswerSelected = this.isAnyAnswerSelected();
+        } else {
+            this.isAnswerSelected = true;
+            this.currentAnswers.set(answer.id, answer.variant);
         }
     }
-    answerIsPresent(idQustion :number,variant :Variant): boolean {
-            if(this.currentAnswers.has(idQustion))
+    answerIsPresent(idQustion: number, variant: Variant): boolean {
+            if (this.currentAnswers.has(idQustion)) {
                 return true;
+            }
+
             return false;
+    }
+    isAnyAnswerSelected(): boolean {
+        for (const answer of this.currentUserAnswer.question.answerList){
+            if (this.currentAnswers.has(answer.id)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
