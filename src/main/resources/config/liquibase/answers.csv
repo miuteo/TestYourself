@@ -104,4 +104,10 @@ B|1|Closeable|617
 C|0|Exception|617
 D|0|RuntimeException|617
 E|0|Serializable|617
-
+A|0|It outputs 100 99.|717
+B|1|It outputs 100 100.|717
+C|0|The output cannot be determined ahead of time.|717
+D|0|The code will not compile because of line w1.|717
+E|0|The code will not compile because of line w2.|717
+F|0|The code will not compile because of line w3.|717
+G|0|The code will not compile because of line w2.|717
