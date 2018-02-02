@@ -25,9 +25,9 @@
                 <tbody>
                 <tr *ngFor="let answer of currentUserAnswer.question.answerList">
                     <td>
-                        <button class="btn btn-danger btn-sm" (click)="negateIsCorect(answer)" *ngIf="!answer.isCorect"
+                        <button class="btn btn-danger btn-sm" (click)="negateIsCorect(answer)" *ngIf="!answerIsPresent(answer.id,answer.variant)"
                         >Incorrect</button>
-                        <button class="btn btn-success btn-sm" (click)="negateIsCorect(answer)" *ngIf="answer.isCorect"
+                        <button class="btn btn-success btn-sm" (click)="negateIsCorect(answer)" *ngIf="answerIsPresent(answer.id,answer.variant)"
                         >Correct</button>
                     </td>
                     <td [innerHTML]="answer.variant"></td>
@@ -35,7 +35,7 @@
                 </tr>
                 </tbody>
             </table>
-            <button class="btn btn-primary create-exam" (click)="nextQuestion()">
+            <button class="btn btn-primary create-exam" *ngIf="currentAnswers.size>0" (click)="nextQuestion()">
                 <span >
                     Next question
                     </span>

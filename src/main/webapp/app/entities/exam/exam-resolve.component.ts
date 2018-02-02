@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Rx';
 import {UserAnswer} from '../user-answer';
 import {Answer} from '../answer';
+import {Variant} from "../answer";
 
 @Component({
     selector : 'jhi-exam-resolve',
@@ -14,12 +15,13 @@ export class ExamResolveComponent implements OnInit {
     exam: Exam;
     currentUserAnswer: UserAnswer;
     private subscription: Subscription;
+    currentAnswers : Map<number,Variant>;
 
     constructor(
         private examService: ExamService,
         private route: ActivatedRoute
     ) {
-
+        this.currentAnswers = new Map();
     }
     ngOnInit() {
         this.subscription = this.route.params.subscribe( (params) => {
@@ -44,7 +46,17 @@ export class ExamResolveComponent implements OnInit {
         }
         this.currentUserAnswer  = this.exam.userAnswers[index];
     }
-    negateIsCorect(answer: Answer){
-        answer.isCorect = !answer.isCorect;
+    negateIsCorect(answer: Answer) {
+
+        if(this.currentAnswers.has(answer.id)){
+            this.currentAnswers.delete(answer.id);
+        }else{
+            this.currentAnswers.set(answer.id,answer.variant);
+        }
+    }
+    answerIsPresent(idQustion :number,variant :Variant): boolean {
+            if(this.currentAnswers.has(idQustion))
+                return true;
+            return false;
     }
 }
