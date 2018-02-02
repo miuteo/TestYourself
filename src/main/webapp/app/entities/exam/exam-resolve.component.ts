@@ -17,12 +17,14 @@ export class ExamResolveComponent implements OnInit {
     private subscription: Subscription;
     currentAnswers: Map<number, Variant>;
     isAnswerSelected: boolean;
+    isAlreadyAnswered: Set<number>;
 
     constructor(
         private examService: ExamService,
         private route: ActivatedRoute
     ) {
         this.currentAnswers = new Map();
+        this.isAlreadyAnswered = new Set();
     }
     ngOnInit() {
         this.subscription = this.route.params.subscribe( (params) => {
@@ -42,6 +44,10 @@ export class ExamResolveComponent implements OnInit {
     nextQuestion() {
         this.isAnswerSelected = false;
         let index: number;
+        this.isAlreadyAnswered.add(this.currentUserAnswer.id);
+        if (this.isAlreadyAnswered.size === this.exam.userAnswers.length) {
+            return;
+        }
         index = this.exam.userAnswers.indexOf(this.currentUserAnswer) + 1;
         if (index >= this.exam.userAnswers.length) {
             index = 0;
