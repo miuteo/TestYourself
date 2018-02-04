@@ -35,9 +35,14 @@
                 </tr>
                 </tbody>
             </table>
-            <button class="btn btn-primary create-exam" *ngIf="isAnswerSelected && this.isAlreadyAnswered.size < this.exam.userAnswers.length" (click)="nextQuestion()">
+            <button class="btn btn-primary create-exam" *ngIf="isAnswerSelected && this.isAlreadyAnswered.size < this.exam.userAnswers.length-1" (click)="nextQuestion()">
                 <span >
                     Next question
+                    </span>
+            </button>
+            <button class="btn btn-success create-exam" *ngIf="isAnswerSelected && this.isAlreadyAnswered.size == this.exam.userAnswers.length-1" (click)="nextQuestion()">
+                <span >
+                    Validate exam!
                     </span>
             </button>
         </dl>

@@ -1,6 +1,7 @@
 package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.mycompany.myapp.domain.Answer;
 import com.mycompany.myapp.domain.Exam;
 
 import com.mycompany.myapp.domain.Question;
