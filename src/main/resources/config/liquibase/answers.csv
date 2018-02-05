@@ -22,6 +22,12 @@ C|0|2|315
 D|1|The result is undefined.|315
 E|0|The code does not compile|315
 F|0|A runtime exception is thrown|315
+A|0|Map<boolean, List<String>>|415
+B|0|Map<Boolean, Map<String>>|415
+C|0|Map<Long, TreeSet<String>>|415
+D|1|Map<Boolean, List<String>>|415
+E|1|Map<Boolean, Set<String>>|415
+F|0|None of the above|415
 A|0|One|615
 B|1|Two|615
 C|0|Three|615
