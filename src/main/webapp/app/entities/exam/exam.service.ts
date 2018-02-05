@@ -24,7 +24,8 @@ export class ExamService {
         });
     }
     generateNewExam(): Observable<Exam> {
-        return this.http.post(SERVER_API_URL + 'api/newExam', '').map((res: Response) => {
+        return this.http.post(SERVER_API_URL + 'api/newExam', '')
+            .map((res: Response) => {
             const jsonResponse = res.json();
             this.convertItemFromServer(jsonResponse);
             return jsonResponse;
@@ -42,6 +43,13 @@ export class ExamService {
 
     find(id: number): Observable<Exam> {
         return this.http.get(`${this.resourceUrl}/${id}`).map((res: Response) => {
+            const jsonResponse = res.json();
+            this.convertItemFromServer(jsonResponse);
+            return jsonResponse;
+        });
+    }
+    findLastExam(): Observable<Exam> {
+        return this.http.get(`${this.resourceUrl}/getLastExam`).map((res: Response) => {
             const jsonResponse = res.json();
             this.convertItemFromServer(jsonResponse);
             return jsonResponse;

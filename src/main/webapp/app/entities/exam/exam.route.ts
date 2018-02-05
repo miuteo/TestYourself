@@ -30,7 +30,7 @@ export const examRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'exam-resolve/:id',
+        path: 'exam-resolve',
         component: ExamResolveComponent,
         data: {
             authorities: ['ROLE_USER'],

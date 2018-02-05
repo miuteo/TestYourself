@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
@@ -19,7 +19,9 @@ export class ExamGenerateDialogComponent  {
     constructor(
         private examService: ExamService,
         public activeModal: NgbActiveModal,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private router: Router,
+        private route: ActivatedRoute
     ) {
     }
 
@@ -29,13 +31,11 @@ export class ExamGenerateDialogComponent  {
 
     confirmGenerate() {
         this.examService.generateNewExam().subscribe((response) => {
-            this.eventManager.broadcast({
-                name: 'examListModification',
-                content: 'Deleted an exam'
-            });
+            this.exam = response;
             this.activeModal.dismiss(true);
         });
-    }
+        this.router.navigate(['/exam-resolve/']);
+     }
 }
 
 @Component({

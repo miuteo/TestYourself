@@ -33,7 +33,7 @@ export class ExamResolveComponent implements OnInit {
     }
 
     load(id) {
-        this.examService.find(id).subscribe( (exam) => {
+        this.examService.findLastExam().subscribe( (exam) => {
             this.exam = exam;
             this.currentUserAnswer = this.exam.userAnswers[0];
 
