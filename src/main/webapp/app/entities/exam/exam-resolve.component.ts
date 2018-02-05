@@ -28,11 +28,11 @@ export class ExamResolveComponent implements OnInit {
     }
     ngOnInit() {
         this.subscription = this.route.params.subscribe( (params) => {
-           this.load(params['id']);
+           this.load();
         });
     }
 
-    load(id) {
+    load() {
         this.examService.findLastExam().subscribe( (exam) => {
             this.exam = exam;
             this.currentUserAnswer = this.exam.userAnswers[0];
@@ -42,6 +42,22 @@ export class ExamResolveComponent implements OnInit {
 
     }
     nextQuestion() {
+        this.isAnswerSelected = false;
+        let index: number;
+        this.isAlreadyAnswered.add(this.currentUserAnswer.id);
+        if (this.isAlreadyAnswered.size === this.exam.userAnswers.length) {
+            return;
+        }
+        index = this.exam.userAnswers.indexOf(this.currentUserAnswer) + 1;
+        if (index >= this.exam.userAnswers.length) {
+            index = 0;
+        }
+        this.currentUserAnswer  = this.exam.userAnswers[index];
+        this.isAnswerSelected = this.isAnyAnswerSelected();
+    }
+    sendAnswer() {
+        // asdfasf
+        // this.currentAnswers.
         this.isAnswerSelected = false;
         let index: number;
         this.isAlreadyAnswered.add(this.currentUserAnswer.id);

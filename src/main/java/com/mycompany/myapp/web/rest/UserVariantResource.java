@@ -54,6 +54,19 @@ public class UserVariantResource {
             .body(result);
     }
 
+    @PostMapping("/user-variantsBulk")
+    @Timed
+    public ResponseEntity<List<UserVariant>> createUserVariantBulk(@RequestBody List<UserVariant> userVariants) throws URISyntaxException {
+        log.debug("REST request to save UserVariant : {}", userVariants);
+//        if (userVariant.getId() != null) {
+//            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new userVariant cannot already have an ID")).body(null);
+//        }
+        List<UserVariant> result = userVariantRepository.save(userVariants);
+        return ResponseEntity.accepted()
+            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, "Saved with succes"))
+            .body(result);
+    }
+
     /**
      * PUT  /user-variants : Updates an existing userVariant.
      *
