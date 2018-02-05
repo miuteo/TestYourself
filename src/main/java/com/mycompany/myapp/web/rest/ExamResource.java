@@ -157,6 +157,16 @@ public class ExamResource {
         log.debug(exam.getUserAnswers().toString());
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(exam));
     }
+    @GetMapping("/exams/getLastExam")
+    @Transactional
+    @Timed
+    public ResponseEntity<Exam> getExam() {
+        log.debug("REST request to get last Exam");
+        Exam exam = examRepository.findTop1ByUserLoginAndScoreIsNullOrderByCreatedDesc(SecurityUtils.getCurrentUserLogin());
+        if(exam!=null && exam.getUserAnswers()!=null)
+            log.debug(exam.getUserAnswers().toString());
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(exam));
+    }
 
     /**
      * DELETE  /exams/:id : delete the "id" exam.

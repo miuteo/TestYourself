@@ -12,8 +12,9 @@ import java.util.List;
 @SuppressWarnings("unused")
 @Repository
 public interface ExamRepository extends JpaRepository<Exam, Long> {
-
     @Query("select exam from Exam exam where exam.user.login = ?#{principal.username}")
     List<Exam> findByUserIsCurrentUser();
+
+    Exam findTop1ByUserLoginAndScoreIsNullOrderByCreatedDesc(String login);
 
 }
