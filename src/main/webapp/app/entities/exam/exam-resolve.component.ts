@@ -6,6 +6,8 @@ import {Subscription} from 'rxjs/Rx';
 import {UserAnswer} from '../user-answer';
 import {Answer} from '../answer';
 import {Variant} from '../answer';
+import {UserVariantService} from '../user-variant/user-variant.service';
+import {UserVariant} from "../user-variant";
 
 @Component({
     selector : 'jhi-exam-resolve',
@@ -21,7 +23,8 @@ export class ExamResolveComponent implements OnInit {
 
     constructor(
         private examService: ExamService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private userVariantService: UserVariantService
     ) {
         this.currentAnswers = new Map();
         this.isAlreadyAnswered = new Set();
@@ -57,7 +60,17 @@ export class ExamResolveComponent implements OnInit {
     }
     sendAnswer() {
         // asdfasf
-        // this.currentAnswers.
+        let userVariantArray :UserVariant[] = new Array();
+        this.currentAnswers.forEach((value, key, map) => {
+           userVariantArray.push(new UserVariant(null,value,this.currentUserAnswer.id));
+        });
+
+        this.userVariantService.createBulk(userVariantArray)
+            .subscribe((params)=>{
+                console.log(`params=`+params);
+            })
+        this.currentAnswers.clear();
+        console.log(userVariantArray);
         this.isAnswerSelected = false;
         let index: number;
         this.isAlreadyAnswered.add(this.currentUserAnswer.id);
@@ -80,6 +93,7 @@ export class ExamResolveComponent implements OnInit {
             this.isAnswerSelected = true;
             this.currentAnswers.set(answer.id, answer.variant);
         }
+        console.log(this.currentAnswers);
     }
     answerIsPresent(idQustion: number, variant: Variant): boolean {
             if (this.currentAnswers.has(idQustion)) {

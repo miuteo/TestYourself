@@ -19,6 +19,12 @@ export class UserVariantService {
             return res.json();
         });
     }
+    createBulk(userVariant: UserVariant[]): Observable<UserVariant> {
+        const copy = this.convertBulk(userVariant);
+        return this.http.post(this.resourceUrl, copy).map((res: Response) => {
+            return res.json();
+        });
+    }
 
     update(userVariant: UserVariant): Observable<UserVariant> {
         const copy = this.convert(userVariant);
@@ -50,6 +56,10 @@ export class UserVariantService {
 
     private convert(userVariant: UserVariant): UserVariant {
         const copy: UserVariant = Object.assign({}, userVariant);
+        return copy;
+    }
+    private convertBulk(userVariant: UserVariant[]): UserVariant[] {
+        const copy: UserVariant[] = Object.assign({}, userVariant);
         return copy;
     }
 }
