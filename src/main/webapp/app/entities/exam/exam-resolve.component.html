@@ -40,9 +40,9 @@
                     Next question
                     </span>
             </button>
-            <button class="btn btn-success create-exam" *ngIf="isAnswerSelected && this.isAlreadyAnswered.size == this.exam.userAnswers.length-1" (click)="nextQuestion()">
+            <button class="btn btn-success create-exam" *ngIf="isAnswerSelected && this.isAlreadyAnswered.size == this.exam.userAnswers.length-1" (click)="sendAnswer()">
                 <span >
-                    Validate exam!
+                    Finish
                     </span>
             </button>
         </dl>
