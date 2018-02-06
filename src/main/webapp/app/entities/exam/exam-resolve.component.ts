@@ -7,7 +7,7 @@ import {UserAnswer} from '../user-answer';
 import {Answer} from '../answer';
 import {Variant} from '../answer';
 import {UserVariantService} from '../user-variant/user-variant.service';
-import {UserVariant} from "../user-variant";
+import {UserVariant} from '../user-variant';
 
 @Component({
     selector : 'jhi-exam-resolve',
@@ -59,18 +59,16 @@ export class ExamResolveComponent implements OnInit {
         this.isAnswerSelected = this.isAnyAnswerSelected();
     }
     sendAnswer() {
-        // asdfasf
-        let userVariantArray :UserVariant[] = new Array();
-        this.currentAnswers.forEach((value, key, map) => {
-           userVariantArray.push(new UserVariant(null,value,this.currentUserAnswer.id));
+        const userVariantArray: UserVariant[] = new Array();
+        this.currentAnswers.forEach((value) => {
+           userVariantArray.push(new UserVariant(null, value, this.currentUserAnswer.id));
         });
 
         this.userVariantService.createBulk(userVariantArray)
-            .subscribe((params)=>{
-                console.log(`params=`+params);
-            })
+            .subscribe((params) => {
+
+            });
         this.currentAnswers.clear();
-        console.log(userVariantArray);
         this.isAnswerSelected = false;
         let index: number;
         this.isAlreadyAnswered.add(this.currentUserAnswer.id);

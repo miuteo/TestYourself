@@ -1,7 +1,5 @@
 import { BaseEntity } from './../../shared';
-import {Variant} from "../answer";
-
-
+import {Variant} from '../answer';
 
 export class UserVariant implements BaseEntity {
     constructor(
