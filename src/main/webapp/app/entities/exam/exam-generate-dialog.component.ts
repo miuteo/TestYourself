@@ -30,11 +30,18 @@ export class ExamGenerateDialogComponent  {
     }
 
     confirmGenerate() {
-        this.examService.generateNewExam().subscribe((response) => {
+        this.examService.generateNewExam()
+            .finally(() => {
+                    setTimeout(() => {
+                        this.router.navigate(['/exam-resolve/']);
+                    }, 0);
+                    this.activeModal.dismiss(true);
+                }
+                )
+            .subscribe((response) => {
             this.exam = response;
-            this.activeModal.dismiss(true);
         });
-        this.router.navigate(['/exam-resolve/']);
+
      }
 }
 

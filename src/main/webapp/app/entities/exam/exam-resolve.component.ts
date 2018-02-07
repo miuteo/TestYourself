@@ -20,6 +20,7 @@ export class ExamResolveComponent implements OnInit {
     currentAnswers: Map<number, Variant>;
     isAnswerSelected: boolean;
     isAlreadyAnswered: Set<number>;
+    isLoading: boolean;
 
     constructor(
         private examService: ExamService,
@@ -28,19 +29,20 @@ export class ExamResolveComponent implements OnInit {
     ) {
         this.currentAnswers = new Map();
         this.isAlreadyAnswered = new Set();
+        this.isLoading = true;
     }
     ngOnInit() {
-        this.subscription = this.route.params.subscribe( (params) => {
+        this.subscription = this.route.params
+            .subscribe( (params) => {
            this.load();
         });
     }
 
     load() {
-        this.examService.findLastExam().subscribe( (exam) => {
+        this.examService.findLastExam()
+            .subscribe( (exam) => {
             this.exam = exam;
             this.currentUserAnswer = this.exam.userAnswers[0];
-
-            console.log(this.exam);
         });
 
     }
