@@ -15,6 +15,7 @@ import { ExamService } from './exam.service';
 export class ExamGenerateDialogComponent  {
 
     exam: Exam;
+    isLoading: boolean;
 
     constructor(
         private examService: ExamService,
@@ -30,16 +31,19 @@ export class ExamGenerateDialogComponent  {
     }
 
     confirmGenerate() {
+        this.isLoading = true;
         this.examService.generateNewExam()
             .finally(() => {
                     setTimeout(() => {
                         this.router.navigate(['/exam-resolve/']);
                     }, 0);
                     this.activeModal.dismiss(true);
+                    this.isLoading = false;
                 }
                 )
             .subscribe((response) => {
             this.exam = response;
+            this.isLoading = false;
         });
 
      }
