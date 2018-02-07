@@ -21,6 +21,7 @@ export class ExamResolveComponent implements OnInit {
     isAnswerSelected: boolean;
     isAlreadyAnswered: Set<number>;
     isLoading: boolean;
+    isBeingCorected: boolean;
 
     constructor(
         private examService: ExamService,
@@ -75,6 +76,7 @@ export class ExamResolveComponent implements OnInit {
         let index: number;
         this.isAlreadyAnswered.add(this.currentUserAnswer.id);
         if (this.isAlreadyAnswered.size === this.exam.userAnswers.length) {
+            this.correctExam();
             return;
         }
         index = this.exam.userAnswers.indexOf(this.currentUserAnswer) + 1;
@@ -93,7 +95,6 @@ export class ExamResolveComponent implements OnInit {
             this.isAnswerSelected = true;
             this.currentAnswers.set(answer.id, answer.variant);
         }
-        console.log(this.currentAnswers);
     }
     answerIsPresent(idQustion: number, variant: Variant): boolean {
             if (this.currentAnswers.has(idQustion)) {
@@ -109,5 +110,9 @@ export class ExamResolveComponent implements OnInit {
             }
         }
         return false;
+    }
+    correctExam() {
+        this.isBeingCorected = true;
+        this.examService.updateExamScore(this.exam.id);
     }
 }

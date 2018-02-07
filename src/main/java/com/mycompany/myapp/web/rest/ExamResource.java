@@ -182,7 +182,7 @@ public class ExamResource {
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
 
-    @PutMapping("/updateExamScore/{id}")
+    @PutMapping("exams/updateExamScore/{id}")
     @Transactional
     @Timed
     public ResponseEntity<Exam> updateExamScore(@PathVariable Long id) throws URISyntaxException {
