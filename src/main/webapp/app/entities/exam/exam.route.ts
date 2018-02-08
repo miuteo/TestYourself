@@ -10,6 +10,7 @@ import { ExamPopupComponent } from './exam-dialog.component';
 import { ExamDeletePopupComponent } from './exam-delete-dialog.component';
 import {ExamGenerateDialogComponent, ExamGeneratePopupComponent} from './exam-generate-dialog.component';
 import {ExamResolveComponent} from './exam-resolve.component';
+import {ExamPopupViewScoreComponent} from './exam-view-score.component';
 
 export const examRoute: Routes = [
     {
@@ -77,6 +78,16 @@ export const examPopupRoute: Routes = [
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'Exams'
+        },
+        canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    },
+    {
+        path: 'exam-view-score',
+        component: ExamPopupViewScoreComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'Exam'
         },
         canActivate: [UserRouteAccessService],
         outlet: 'popup'
