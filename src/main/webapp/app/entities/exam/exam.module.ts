@@ -18,6 +18,7 @@ import {
     examPopupRoute,
 } from './';
 import {ExamResolveComponent} from './exam-resolve.component';
+import {ExamPopupViewScoreComponent, ExamViewScoreComponent} from './exam-view-score.component';
 
 const ENTITY_STATES = [
     ...examRoute,
@@ -39,7 +40,9 @@ const ENTITY_STATES = [
         ExamPopupComponent,
         ExamDeletePopupComponent,
         ExamGeneratePopupComponent,
-        ExamResolveComponent
+        ExamResolveComponent,
+        ExamViewScoreComponent,
+        ExamPopupViewScoreComponent
     ],
     entryComponents: [
         ExamComponent,
@@ -48,7 +51,8 @@ const ENTITY_STATES = [
         ExamDeleteDialogComponent,
         ExamGenerateDialogComponent,
         ExamDeletePopupComponent,
-        ExamGeneratePopupComponent
+        ExamGeneratePopupComponent,
+        ExamViewScoreComponent
     ],
     providers: [
         ExamService,

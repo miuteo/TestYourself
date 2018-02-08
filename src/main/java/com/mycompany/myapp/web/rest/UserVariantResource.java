@@ -15,6 +15,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -56,12 +57,12 @@ public class UserVariantResource {
 
     @PostMapping("/user-variantsBulk")
     @Timed
-    public ResponseEntity<List<UserVariant>> createUserVariantBulk(@RequestBody List<UserVariant> userVariants) throws URISyntaxException {
+    public ResponseEntity<List<UserVariant>> createUserVariantBulk(@RequestBody Map<Integer,UserVariant> userVariants) throws URISyntaxException {
         log.debug("REST request to save UserVariant : {}", userVariants);
 //        if (userVariant.getId() != null) {
 //            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new userVariant cannot already have an ID")).body(null);
 //        }
-        List<UserVariant> result = userVariantRepository.save(userVariants);
+        List<UserVariant> result = userVariantRepository.save(userVariants.values());
         return ResponseEntity.accepted()
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, "Saved with succes"))
             .body(result);

@@ -10,12 +10,25 @@ import { ResponseWrapper, createRequestOption } from '../../shared';
 export class UserVariantService {
 
     private resourceUrl = SERVER_API_URL + 'api/user-variants';
+    private resourceUrlBulkInsert = SERVER_API_URL + 'api/user-variantsBulk';
 
     constructor(private http: Http) { }
 
     create(userVariant: UserVariant): Observable<UserVariant> {
         const copy = this.convert(userVariant);
         return this.http.post(this.resourceUrl, copy).map((res: Response) => {
+            return res.json();
+        });
+    }
+    createBulk(userVariant: UserVariant[]): Observable<UserVariant> {
+        const copy = this.convertBulk(userVariant);
+        return this.http.post(this.resourceUrlBulkInsert, copy).map((res: Response) => {
+            return res.json();
+        });
+    }
+    createBulk2(userVariant: Set<UserVariant>): Observable<UserVariant> {
+        const copy = this.convertBulk2(userVariant);
+        return this.http.post(this.resourceUrlBulkInsert, copy).map((res: Response) => {
             return res.json();
         });
     }
@@ -50,6 +63,14 @@ export class UserVariantService {
 
     private convert(userVariant: UserVariant): UserVariant {
         const copy: UserVariant = Object.assign({}, userVariant);
+        return copy;
+    }
+    private convertBulk(userVariant: UserVariant[]): UserVariant[] {
+        const copy: UserVariant[] = Object.assign({}, userVariant);
+        return copy;
+    }
+    private convertBulk2(userVariant: Set<UserVariant>): Set<UserVariant> {
+        const copy: Set<UserVariant> = Object.assign({}, userVariant);
         return copy;
     }
 }

@@ -23,6 +23,14 @@ export class ExamService {
             return jsonResponse;
         });
     }
+
+    updateExamScore(id: number): Observable<Exam> {
+        return this.http.put(`${this.resourceUrl}/updateExamScore/${id}`, null).map((res: Response) => {
+            const jsonResponse = res.json();
+            this.convertItemFromServer(jsonResponse);
+            return jsonResponse;
+        });
+    }
     generateNewExam(): Observable<Exam> {
         return this.http.post(SERVER_API_URL + 'api/newExam', '')
             .map((res: Response) => {

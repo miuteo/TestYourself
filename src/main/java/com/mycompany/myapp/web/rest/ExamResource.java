@@ -1,11 +1,9 @@
 package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import com.mycompany.myapp.domain.Answer;
-import com.mycompany.myapp.domain.Exam;
+import com.mycompany.myapp.domain.*;
 
-import com.mycompany.myapp.domain.Question;
-import com.mycompany.myapp.domain.UserAnswer;
+import com.mycompany.myapp.domain.enumeration.Variant;
 import com.mycompany.myapp.repository.*;
 import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.service.util.RandomUtil;
@@ -30,6 +28,7 @@ import java.net.URISyntaxException;
 
 import java.time.Instant;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * REST controller for managing Exam.
@@ -181,5 +180,45 @@ public class ExamResource {
         log.debug("REST request to delete Exam : {}", id);
         examRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+
+    @PutMapping("exams/updateExamScore/{id}")
+    @Transactional
+    @Timed
+    public ResponseEntity<Exam> updateExamScore(@PathVariable Long id) throws URISyntaxException {
+        log.debug("REST request to update Exam {} Score", id);
+        Exam exam = examRepository.findOne(id);
+        if(exam == null){
+            return ResponseUtil.wrapOrNotFound(Optional.ofNullable(exam));
+        }
+        int totalScore = 0;
+        int maxScore = exam.getUserAnswers().size();
+        for(UserAnswer userAnswer:exam.getUserAnswers()){
+            Question question = userAnswer.getQuestion();
+            Set<Variant> correctVariant =  question.getAnswerList().stream()
+                .filter(Answer::isIsCorect)
+                .map(Answer::getVariant)
+                .collect(Collectors.toSet());
+            List<Variant> userVariant =  userAnswer.getUserVariants().stream()
+                .map(UserVariant::getVariant)
+                .collect(Collectors.toList());
+            if(correctVariant.size()!=userVariant.size()) continue;
+            boolean isAnyAnswerWrong = false;
+            for(Variant variant:userVariant){
+                if(!correctVariant.contains(variant)){
+                    isAnyAnswerWrong = true;
+                    break;
+                }
+            }
+            if(!isAnyAnswerWrong) totalScore++;
+        }
+        log.debug("totalScore="+totalScore);
+        exam.setLastModifiedDate(Instant.now());
+        exam.setScore(totalScore);
+        exam.setTotalScore(maxScore);
+        Exam result = examRepository.save(exam);
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, exam.getId().toString()))
+            .body(result);
     }
 }
