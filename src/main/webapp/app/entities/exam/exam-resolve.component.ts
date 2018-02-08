@@ -21,7 +21,7 @@ export class ExamResolveComponent implements OnInit {
     isAnswerSelected: boolean;
     isAlreadyAnswered: Set<number>;
     isLoading: boolean;
-    isBeingCorected: boolean;
+    examPhase = 0;
 
     constructor(
         private examService: ExamService,
@@ -112,7 +112,7 @@ export class ExamResolveComponent implements OnInit {
         return false;
     }
     correctExam() {
-        this.isBeingCorected = true;
+        this.examPhase = 1;
         this.examService.updateExamScore(this.exam.id);
     }
 }

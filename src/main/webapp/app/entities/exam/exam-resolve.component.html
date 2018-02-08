@@ -1,4 +1,4 @@
-<div *ngIf="(exam && !isBeingCorected)">
+<div *ngIf="(exam && examPhase == 0)">
     <h2><span>Question #</span> {{exam.userAnswers.indexOf(currentUserAnswer)+1}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
@@ -48,7 +48,7 @@
         </dl>
     </div>
 </div>
-<div *ngIf="isBeingCorected">
+<div *ngIf="examPhase == 1">
 <h1>Please Wait...Your exam is beeing corected</h1>
 </div>
 
