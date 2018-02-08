@@ -22,11 +22,11 @@ C|0|2|315
 D|1|The result is undefined.|315
 E|0|The code does not compile|315
 F|0|A runtime exception is thrown|315
-A|0|Map<boolean, List<String>>|415
-B|0|Map<Boolean, Map<String>>|415
-C|0|Map<Long, TreeSet<String>>|415
-D|1|Map<Boolean, List<String>>|415
-E|1|Map<Boolean, Set<String>>|415
+A|0|Map&lt;boolean, List&lt;String&gt;&gt;|415
+B|0|Map&lt;Boolean, Map&lt;String&gt;&gt;|415
+C|0|Map&lt;Long, TreeSet&lt;String&gt;&gt;|415
+D|1|Map&lt;Boolean, List&lt;String&gt;&gt;|415
+E|1|Map&lt;Boolean, Set&lt;String&gt;&gt;|415
 F|0|None of the above|415
 A|0|One|615
 B|1|Two|615
@@ -34,13 +34,13 @@ C|0|Three|615
 D|0|Four|615
 E|1|Five|615
 F|0|Six|615
-A|0|a -> {return 10;}|715
-B|0|() -> {String s = "";}|715
-C|1|() -> 5|715
-D|0|() -> {return null}|715
-E|1|() -> "The" + "Zoo"|715
-F|0|(int count) -> count+1|715
-G|1|() -> {System.out.println("Giraffe"); return 10;}|715
+A|0|a -&gt; {return 10;}|715
+B|0|() -&gt; {String s = &quot;&quot;;}|715
+C|1|() -&gt; 5|715
+D|0|() -&gt; {return null}|715
+E|1|() -&gt; &quot;The&quot; + &quot;Zoo&quot;|715
+F|0|(int count) -&gt; count+1|715
+G|1|() -&gt; {System.out.println(&quot;Giraffe&quot;); return 10;}|715
 A|0|Inner in = new Inner();|116
 B|0|Inner in = Outer.new Inner();|116
 C|0|Outer.Inner in = new Outer.Inner();|116
@@ -93,17 +93,17 @@ C|1|All instance variables are marked private.|217
 D|0|They implement the JavaBean interface.|217
 E|0|Variables are created using lazy instantiation.|217
 F|1|The first letter of the any getter/setter, after the get, set, or is prefix, must be uppercase.|217
-A|0|On line 1, fill in with <>.|317
-B|1|On line 1, fill in with <T>.|317
-C|0|On line 1, fill in with <?>.|317
-D|1|On line 3, fill in with <>.|317
-E|0|On line 3, fill in with <T>.|317
-F|0|On line 3, fill in with <?>.|317
-A|0|BiFunction<Integer> f = x -> x*x;|417
-B|0|BiFunction<Integer, Integer> f = x -> x*x;|417
-C|0|BinaryOperator<Integer, Integer> f = x -> x*x;|417
-D|0|Function<Integer> f = x -> x*x;|417
-E|1|Function<Integer, Integer> f = x -> x*x;|417
+A|0|On line 1, fill in with &lt;&gt;.|317
+B|1|On line 1, fill in with &lt;T&gt;.|317
+C|0|On line 1, fill in with &lt;?&gt;.|317
+D|1|On line 3, fill in with &lt;&gt;.|317
+E|0|On line 3, fill in with &lt;T&gt;.|317
+F|0|On line 3, fill in with &lt;?&gt;.|317
+A|0|BiFunction&lt;Integer&gt; f = x -&gt; x*x;|417
+B|0|BiFunction&lt;Integer, Integer&gt; f = x -&gt; x*x;|417
+C|0|BinaryOperator&lt;Integer, Integer&gt; f = x -&gt; x*x;|417
+D|0|Function&lt;Integer&gt; f = x -&gt; x*x;|417
+E|1|Function&lt;Integer, Integer&gt; f = x -&gt; x*x;|417
 F|0|None of the above|417
 A|1|AutoCloseable|617
 B|1|Closeable|617
