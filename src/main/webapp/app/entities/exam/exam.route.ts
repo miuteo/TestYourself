@@ -83,7 +83,7 @@ export const examPopupRoute: Routes = [
         outlet: 'popup'
     },
     {
-        path: 'exam-view-score',
+        path: 'exam-view-score/:id',
         component: ExamPopupViewScoreComponent,
         data: {
             authorities: ['ROLE_USER'],

@@ -25,7 +25,7 @@ export class ExamService {
     }
 
     updateExamScore(id: number): Observable<Exam> {
-        return this.http.post(`${this.resourceUrl}/updateExamScore/{$id}`, null).map((res: Response) => {
+        return this.http.put(`${this.resourceUrl}/updateExamScore/${id}`, null).map((res: Response) => {
             const jsonResponse = res.json();
             this.convertItemFromServer(jsonResponse);
             return jsonResponse;

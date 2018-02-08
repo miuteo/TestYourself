@@ -40,7 +40,7 @@ dependencyManagement {
 defaultTasks 'bootRun'
 
 group = 'com.mycompany.myapp'
-version = '0.2.1-SNAPSHOT'
+version = '1.0.0-SNAPSHOT'
 
 description = ''
 

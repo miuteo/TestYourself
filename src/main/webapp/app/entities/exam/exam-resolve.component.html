@@ -51,5 +51,42 @@
 <div *ngIf="examPhase == 1">
 <h1>Please Wait...Your exam is beeing corected</h1>
 </div>
+<div *ngIf="examPhase == 2">
+
+    <div *ngIf="exam">
+        <h2>Exam corrected successfully</h2>
+        <hr>
+        <jhi-alert-error></jhi-alert-error>
+        <dl class="row-md jh-entity-details">
+            <dt><span>Score</span></dt>
+            <dd>
+                <span>{{exam.score}}</span>
+            </dd>
+            <dt><span>Total Score</span></dt>
+            <dd>
+                <span>{{exam.totalScore}}</span>
+            </dd>
+            <dt><span>Created</span></dt>
+            <dd>
+                <span>{{exam.created | date:'medium'}}</span>
+            </dd>
+            <dt><span>Last Modified Date</span></dt>
+            <dd>
+                <span>{{exam.lastModifiedDate | date:'medium'}}</span>
+            </dd>
+            <dt><span>User</span></dt>
+            <dd>
+                {{exam.user?.login}}
+            </dd>
+        </dl>
+
+        <button type="submit"
+                (click)="previousState()"
+                class="btn btn-info">
+            <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+        </button>
+    </div>
+
+</div>
 
 

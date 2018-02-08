@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Exam} from './exam.model';
 import {ExamService} from './exam.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Rx';
 import {UserAnswer} from '../user-answer';
 import {Answer} from '../answer';
@@ -26,6 +26,7 @@ export class ExamResolveComponent implements OnInit {
     constructor(
         private examService: ExamService,
         private route: ActivatedRoute,
+        private router: Router,
         private userVariantService: UserVariantService
     ) {
         this.currentAnswers = new Map();
@@ -113,6 +114,20 @@ export class ExamResolveComponent implements OnInit {
     }
     correctExam() {
         this.examPhase = 1;
-        this.examService.updateExamScore(this.exam.id);
+        this.examService.updateExamScore(this.exam.id)
+            .finally(() => {
+                    // setTimeout(() => {
+                    //     this.router.navigate(['/', { outlets: { popup: ['exam-view-score' , this.exam.id] } } ]);
+                    // }, 0);
+                    this.isLoading = false;
+                }
+            )
+            .subscribe( (response) => {
+                this.exam = response;
+                this.examPhase = 2;
+            })
+    }
+    previousState() {
+        window.history.back();
     }
 }
