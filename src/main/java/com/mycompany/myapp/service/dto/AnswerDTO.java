@@ -1,5 +1,6 @@
 package com.mycompany.myapp.service.dto;
 
+import com.mycompany.myapp.domain.Answer;
 import com.mycompany.myapp.domain.Question;
 import com.mycompany.myapp.domain.enumeration.Variant;
 
@@ -11,11 +12,16 @@ public class AnswerDTO{
 
     private Variant variant;
 
-
-    @NotNull
     private String content;
 
-    private Question question;
+
+    public AnswerDTO(Answer answer){
+        this.id = answer.getId();
+        this.content = answer.getContent();
+        this.variant = answer.getVariant();
+    }
+
+
 
     public Long getId() {
         return id;
@@ -46,14 +52,8 @@ public class AnswerDTO{
         this.content = content;
     }
 
-    public Question getQuestion() {
-        return question;
-    }
 
 
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
 
 
     @Override

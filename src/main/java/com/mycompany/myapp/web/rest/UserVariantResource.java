@@ -8,6 +8,8 @@ import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,6 +59,7 @@ public class UserVariantResource {
 
     @PostMapping("/user-variantsBulk")
     @Timed
+    @CachePut(cacheNames="com.mycompany.myapp.domain.UserAnswer.userVariants")
     public ResponseEntity<List<UserVariant>> createUserVariantBulk(@RequestBody Map<Integer,UserVariant> userVariants) throws URISyntaxException {
         log.debug("REST request to save UserVariant : {}", userVariants);
 //        if (userVariant.getId() != null) {

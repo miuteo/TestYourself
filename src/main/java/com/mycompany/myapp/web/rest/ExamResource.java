@@ -6,6 +6,7 @@ import com.mycompany.myapp.domain.*;
 import com.mycompany.myapp.domain.enumeration.Variant;
 import com.mycompany.myapp.repository.*;
 import com.mycompany.myapp.security.SecurityUtils;
+import com.mycompany.myapp.service.dto.ExamDTO;
 import com.mycompany.myapp.service.util.RandomUtil;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import com.mycompany.myapp.web.rest.util.PaginationUtil;
@@ -160,12 +161,15 @@ public class ExamResource {
     @GetMapping("/exams/getLastExam")
     @Transactional
     @Timed
-    public ResponseEntity<Exam> getExam() {
+    public ResponseEntity<ExamDTO> getExam() {
         log.debug("REST request to get last Exam");
         Exam exam = examRepository.findTop1ByUserLoginAndScoreIsNullOrderByCreatedDesc(SecurityUtils.getCurrentUserLogin());
-        if(exam!=null && exam.getUserAnswers()!=null)
-            log.debug(exam.getUserAnswers().toString());
-        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(exam));
+        ExamDTO examDTO= null;
+        if(exam!=null){
+            examDTO = new ExamDTO(exam);
+        }
+
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(examDTO));
     }
 
     /**

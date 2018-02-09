@@ -12,6 +12,7 @@ import java.time.Instant;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ExamDTO {
 
@@ -19,15 +20,31 @@ public class ExamDTO {
 
     private Integer score;
 
+    private Integer totalQuestions;
+
+    private Integer noOfQuestionsAnswered;
+
     private Integer totalScore;
 
     private Instant created;
 
     private Instant lastModifiedDate;
 
-    private User user;
+    private Set<UserAnswerDTO> userAnswers;
 
-    private Set<UserAnswer> userAnswers;
+    public ExamDTO(Exam exam){
+        if(exam == null)
+            throw new NullPointerException();
+        this.id = exam.getId();
+        this.score = exam.getScore();
+
+        totalQuestions = exam.getUserAnswers().size();
+        userAnswers = exam.getUserAnswers().stream()
+            .filter(question -> question.getUserVariants().size()==0)
+            .map(UserAnswerDTO::new)
+            .collect(Collectors.toSet());
+        noOfQuestionsAnswered = totalQuestions - userAnswers.size();
+    }
 
     public Long getId() {
         return id;
@@ -69,23 +86,31 @@ public class ExamDTO {
         this.lastModifiedDate = lastModifiedDate;
     }
 
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Set<UserAnswer> getUserAnswers() {
+    public Set<UserAnswerDTO> getUserAnswers() {
         return userAnswers;
     }
 
 
-    public void setUserAnswers(Set<UserAnswer> userAnswers) {
+    public void setUserAnswers(Set<UserAnswerDTO> userAnswers) {
         this.userAnswers = userAnswers;
     }
 
+    public Integer getTotalQuestions() {
+        return totalQuestions;
+    }
+
+    public void setTotalQuestions(Integer totalQuestions) {
+        this.totalQuestions = totalQuestions;
+    }
+
+    public Integer getNoOfQuestionsAnswered() {
+        return noOfQuestionsAnswered;
+    }
+
+    public void setNoOfQuestionsAnswered(Integer noOfQuestionsAnswered) {
+        this.noOfQuestionsAnswered = noOfQuestionsAnswered;
+    }
 
     @Override
     public String toString() {
