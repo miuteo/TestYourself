@@ -64,6 +64,13 @@ export class ExamService {
         });
     }
 
+    countPendingExam(): Observable<number> {
+        return this.http.get(`${this.resourceUrl}/noOfPendingExam`).map((res: Response) => {
+            const jsonResponse = res.json();
+            return jsonResponse;
+        });
+    }
+
     query(req?: any): Observable<ResponseWrapper> {
         const options = createRequestOption(req);
         return this.http.get(this.resourceUrl, options)

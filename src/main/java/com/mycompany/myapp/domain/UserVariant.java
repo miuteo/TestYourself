@@ -28,10 +28,11 @@ public class UserVariant implements Serializable {
     @Column(name = "variant")
     private Variant variant;
 
-//    @ManyToOne
+    @ManyToOne
 //    @JsonIgnore
-    @Column(name="user_answer_id")
-    private long userAnswer;
+//    @Column(name="user_answer_id")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private UserAnswer userAnswer;
 
 
     // jhipster-needle-entity-add-field - Jhipster will add fields here, do not remove
@@ -56,11 +57,11 @@ public class UserVariant implements Serializable {
         this.variant = variant;
     }
 
-    public long getUserAnswer() {
+    public UserAnswer getUserAnswer() {
         return userAnswer;
     }
 
-    public void setUserAnswer(long userAnswer) {
+    public void setUserAnswer(UserAnswer userAnswer) {
         this.userAnswer = userAnswer;
     }
     // jhipster-needle-entity-add-getters-setters - Jhipster will add getters and setters here, do not remove

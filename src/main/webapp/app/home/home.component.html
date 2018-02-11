@@ -13,10 +13,20 @@
                    > You are logged in as user "{{account.login}}". </span>
 
             </div>
-            <button class="btn btn-primary jh-create-entity create-exam" [routerLink]="['/', { outlets: { popup: ['exam-generate'] } }]" *ngSwitchCase="true">
+            <button class="btn btn-primary jh-create-entity create-exam"
+                    [routerLink]="['/', { outlets: { popup: ['exam-generate'] } }]"
+                    *ngSwitchCase="true && !havePendingExam" >
                 <span class="fa fa-plus"></span>
                 <span >
                     Begin Test!
+                    </span>
+            </button>
+            <button class="btn btn-primary jh-create-entity create-exam"
+                    [routerLink]="['/exam-resolve']"
+                    *ngSwitchCase="true && havePendingExam" >
+                <span class="fa fa-folder-open"></span>
+                <span >
+                    Resume Test!
                     </span>
             </button>
 

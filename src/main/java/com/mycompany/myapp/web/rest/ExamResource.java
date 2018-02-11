@@ -171,6 +171,14 @@ public class ExamResource {
 
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(examDTO));
     }
+    @GetMapping("/exams/noOfPendingExam")
+    @Timed
+    public ResponseEntity<Long> noOfPendingExam() {
+        log.debug("REST request to get no of Pending exams");
+        long count = examRepository.countByUserIsCurrentUserAndScoreIsNull();
+
+        return ResponseEntity.ok(count);
+    }
 
     /**
      * DELETE  /exams/:id : delete the "id" exam.

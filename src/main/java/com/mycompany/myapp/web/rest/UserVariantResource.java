@@ -1,24 +1,29 @@
 package com.mycompany.myapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.mycompany.myapp.domain.UserAnswer;
 import com.mycompany.myapp.domain.UserVariant;
 
+import com.mycompany.myapp.repository.UserAnswerRepository;
 import com.mycompany.myapp.repository.UserVariantRepository;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * REST controller for managing UserVariant.
@@ -32,9 +37,15 @@ public class UserVariantResource {
     private static final String ENTITY_NAME = "userVariant";
 
     private final UserVariantRepository userVariantRepository;
+    private final CacheManager cacheManager;
+    private final UserAnswerRepository userAnswerRepository;
 
-    public UserVariantResource(UserVariantRepository userVariantRepository) {
+    public UserVariantResource(UserVariantRepository userVariantRepository,
+                               CacheManager cacheManager,
+                               UserAnswerRepository userAnswerRepository) {
         this.userVariantRepository = userVariantRepository;
+        this.cacheManager = cacheManager;
+        this.userAnswerRepository = userAnswerRepository;
     }
 
     /**
@@ -59,15 +70,51 @@ public class UserVariantResource {
 
     @PostMapping("/user-variantsBulk")
     @Timed
-    @CachePut(cacheNames="com.mycompany.myapp.domain.UserAnswer.userVariants")
+    @Transactional
     public ResponseEntity<List<UserVariant>> createUserVariantBulk(@RequestBody Map<Integer,UserVariant> userVariants) throws URISyntaxException {
         log.debug("REST request to save UserVariant : {}", userVariants);
-//        if (userVariant.getId() != null) {
-//            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new userVariant cannot already have an ID")).body(null);
-//        }
+
+        Collection<UserVariant> userVariantList = userVariants.values();
+        Map<UserAnswer,List<UserVariant>> userAnswerMap =userVariantList.stream()
+            .collect(Collectors.groupingBy(UserVariant::getUserAnswer));
+
+        if(userAnswerMap.keySet().size()!=1){
+            return ResponseEntity.badRequest().headers(
+                HeaderUtil
+                    .createFailureAlert(ENTITY_NAME,"answerToDifferentQuestion",
+                        "Answering to multiplee qustions is prohibed"))
+                .body(null);
+        }
+        Long userAnswerId = userAnswerMap.keySet().stream().filter(userAnswer -> userAnswer.getId()!=null).map(UserAnswer::getId)
+            .findAny().orElse(null);
+        if(userAnswerId == null){
+            return ResponseEntity.badRequest().headers(
+                HeaderUtil
+                    .createFailureAlert(ENTITY_NAME,"questionIdIsNull",
+                        "Qustion id is null"))
+                .body(null);
+        }
+        UserAnswer userAnswerFound =userAnswerRepository.findOne(userAnswerId);
+        if(userAnswerFound == null){
+            return ResponseEntity.badRequest().headers(
+                HeaderUtil
+                    .createFailureAlert(ENTITY_NAME,"invalidQuestion",
+                        "invalid Question"))
+                .body(null);
+        }
+        if(userAnswerFound.getUserVariants().size()>0){
+            return ResponseEntity.badRequest().headers(
+                HeaderUtil
+                    .createFailureAlert(ENTITY_NAME,null,
+                        "already responded to this"))
+                .body(null);
+        }
         List<UserVariant> result = userVariantRepository.save(userVariants.values());
+        userAnswerFound.setUserVariants(result);
+
         return ResponseEntity.accepted()
-            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, "Saved with succes"))
+            .headers(HeaderUtil.createAlert("Your "
+                +(result.size()>1?"answers":"answer")+" has been saved successfully!", ""))
             .body(result);
     }
 

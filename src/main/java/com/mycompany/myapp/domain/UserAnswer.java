@@ -6,9 +6,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * A UserAnswer.
@@ -28,9 +26,9 @@ public class UserAnswer implements Serializable {
     private Question question;
 
     @OneToMany(mappedBy = "userAnswer")
-//    @JsonIgnore
+    @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<UserVariant> userVariants = new HashSet<>();
+    private List<UserVariant> userVariants = new ArrayList<>();
 
     @ManyToOne
     @JsonIgnore
@@ -58,11 +56,11 @@ public class UserAnswer implements Serializable {
         this.question = question;
     }
 
-    public Set<UserVariant> getUserVariants() {
+    public List<UserVariant> getUserVariants() {
         return userVariants;
     }
 
-    public UserAnswer userVariants(Set<UserVariant> userVariants) {
+    public UserAnswer userVariants(List<UserVariant> userVariants) {
         this.userVariants = userVariants;
         return this;
     }
@@ -79,7 +77,7 @@ public class UserAnswer implements Serializable {
         return this;
     }
 
-    public void setUserVariants(Set<UserVariant> userVariants) {
+    public void setUserVariants(List<UserVariant> userVariants) {
         this.userVariants = userVariants;
     }
 

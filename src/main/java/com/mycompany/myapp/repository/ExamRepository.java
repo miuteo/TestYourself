@@ -17,4 +17,7 @@ public interface ExamRepository extends JpaRepository<Exam, Long> {
 
     Exam findTop1ByUserLoginAndScoreIsNullOrderByCreatedDesc(String login);
 
+    @Query("select count(exam) from Exam exam where exam.score is null and exam.user.login = ?#{principal.username}")
+    long countByUserIsCurrentUserAndScoreIsNull();
+
 }

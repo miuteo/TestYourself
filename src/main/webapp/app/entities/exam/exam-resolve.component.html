@@ -1,5 +1,6 @@
+<jhi-alert></jhi-alert>
 <div *ngIf="(exam && examPhase == 0)">
-    <h2><span>Question #</span> {{exam.userAnswers.indexOf(currentUserAnswer)+1}}</h2>
+    <h2><span>Question #</span> {{exam.userAnswers.indexOf(currentUserAnswer)+1+exam.noOfQuestionsAnswered}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <!--<dl class="row-md jh-entity-details">-->

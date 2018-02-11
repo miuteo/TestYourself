@@ -65,7 +65,7 @@ export class ExamResolveComponent implements OnInit {
     sendAnswer() {
         const userVariantArray: UserVariant[] = new Array();
         this.currentAnswers.forEach((value) => {
-           userVariantArray.push(new UserVariant(null, value, this.currentUserAnswer.id));
+           userVariantArray.push(new UserVariant(null, value, this.currentUserAnswer));
         });
 
         this.userVariantService.createBulk(userVariantArray)
