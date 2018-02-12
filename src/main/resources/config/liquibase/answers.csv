@@ -117,3 +117,41 @@ D|0|The code will not compile because of line w1.|717
 E|0|The code will not compile because of line w2.|717
 F|0|The code will not compile because of line w3.|717
 G|0|The code will not compile because of line w2.|717
+A|0|fish|118
+B|0|FISH|118
+C|0|0|118
+D|0|1|118
+E|0|false|118
+F|0|true|118
+G|1|The code does not compiles.|118
+A|1|Inheritance supports access to protected variables.|218
+B|1|Object composition tends to promote greater code reuse than inheritance.|218
+C|0|Inheritance relies on the has-a principle.|218
+D|0|Object composition supports method overriding at runtime.|218
+E|1|Object composition requires a class variable to be declared public or accessible from a public method to be used by a class in a different package.|218
+F|0|Object composition is always preferred to inheritance.|218
+A|1|A a1 = new A();|318
+B|1|A a2 = new B();|318
+C|1|A a3 = new C();|318
+D|0|C c1 = new A();|318
+E|0|C c2 = new B();|318
+F|0|C c1 = new C();|318
+A|0|1|418
+B|0|2|418
+C|0|2.4|418
+D|1|1.2 and 2.4|418
+E|0|There is no output|418
+F|0|The code does not compile|418
+G|0|An exception is thrown|418
+A|0|Exception, AutoCloseable|618
+B|1|Exception, Closeable|618
+C|0|IllegalStateException, AutoCloseable|618
+D|0|IllegalStateException, Closeable|618
+E|0|IOException, AutoCloseable|618
+F|0|IOException, Closeable|618
+A|0|It outputs Stock Room Full!|718
+B|0|The code will not compile because of line j1.|718
+C|0|The code will not compile because of line j2.|718
+D|0|The code will not compile because of line j3.|718
+E|0|It compiles but throws an exception at runtime.|718
+F|1|It compiles but waits forever at runtime.|718
