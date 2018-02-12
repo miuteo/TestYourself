@@ -37,14 +37,11 @@ public class UserVariantResource {
     private static final String ENTITY_NAME = "userVariant";
 
     private final UserVariantRepository userVariantRepository;
-    private final CacheManager cacheManager;
     private final UserAnswerRepository userAnswerRepository;
 
     public UserVariantResource(UserVariantRepository userVariantRepository,
-                               CacheManager cacheManager,
                                UserAnswerRepository userAnswerRepository) {
         this.userVariantRepository = userVariantRepository;
-        this.cacheManager = cacheManager;
         this.userAnswerRepository = userAnswerRepository;
     }
 
