@@ -10,6 +10,8 @@ export class Exam implements BaseEntity {
         public lastModifiedDate?: any,
         public user?: User,
         public userAnswers?: UserAnswer[],
+        public noOfQuestionsAnswered?: number,
+        public totalQuestions?: number,
     ) {
     }
 }

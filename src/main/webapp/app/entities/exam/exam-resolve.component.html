@@ -1,22 +1,15 @@
 <jhi-alert></jhi-alert>
+<p *ngIf="exam && examPhase!=2"><ngb-progressbar type="info" [value]="exam.noOfQuestionsAnswered+1" [max]="exam.totalQuestions"
+                                 [striped]="true" [animated]="true">
+    <i>{{exam.noOfQuestionsAnswered+1}} of {{exam.totalQuestions}}</i>
+</ngb-progressbar></p>
+<p *ngIf="exam && examPhase==2"><ngb-progressbar type="success" [value]="100" [max]="100"
+                                                 showValue="true" [striped]="true"></p>
 <div *ngIf="(exam && examPhase == 0)">
-    <h2><span>Question #</span> {{exam.userAnswers.indexOf(currentUserAnswer)+1+exam.noOfQuestionsAnswered}}</h2>
+
+    <h2><span>Question #</span> {{exam.noOfQuestionsAnswered+1}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
-    <!--<dl class="row-md jh-entity-details">-->
-        <!--<table class="table table-striped">-->
-            <!--<tbody>-->
-            <!--<tr *ngFor="let userAnswer of exam.userAnswers ">-->
-                <!--<td [innerHTML]="userAnswer.question.content"></td>-->
-                <!--<span *ngFor="let answer of userAnswer.question.answerList">-->
-                   <!--{{answer.variant}}. {{answer.content}}<br/>-->
-                <!--</span>-->
-
-            <!--</tr>-->
-            <!--</tbody>-->
-        <!--</table>-->
-
-    <!--</dl>-->
     <div class="row">
         <dl class="row-md jh-entity-details">
             <span [innerHTML]="currentUserAnswer.question.content"></span>

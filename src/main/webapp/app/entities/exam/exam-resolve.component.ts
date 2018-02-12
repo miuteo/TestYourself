@@ -70,7 +70,7 @@ export class ExamResolveComponent implements OnInit {
 
         this.userVariantService.createBulk(userVariantArray)
             .subscribe((params) => {
-
+                this.exam.noOfQuestionsAnswered++;
             });
         this.currentAnswers.clear();
         this.isAnswerSelected = false;
