@@ -225,3 +225,40 @@ B$0$Concurrency always improves the performance of an application.$720
 C$0$Computers with a single processor do not benefit from concurrency.$720
 D$1$Applications with many resource-heavy tasks tend to benefit more from concurrency than ones with CPU-intensive tasks.$720
 E$0$Concurrent tasks do not share the same memory.$720
+A$0$The&nbsp;code&nbsp;compiles,&nbsp;and&nbsp;the&nbsp;output&nbsp;is&nbsp;0.$114
+B$0$The&nbsp;code&nbsp;compiles,&nbsp;and&nbsp;the&nbsp;output&nbsp;is&nbsp;3.$114
+C$0$The&nbsp;code&nbsp;compiles,&nbsp;and&nbsp;the&nbsp;output&nbsp;is&nbsp;7.$114
+D$0$c&nbsp;instanceof&nbsp;Chipmunk&nbsp;does&nbsp;not&nbsp;compile.$114
+E$1$l&nbsp;instanceof&nbsp;Chipmunk&nbsp;does&nbsp;not&nbsp;compile.$114
+F$0$r&nbsp;instanceof&nbsp;Chipmunk&nbsp;does&nbsp;not&nbsp;compile.$114
+A$1$Frog$214
+B$1$TurtleFrog$214
+C$0$BrazilianHornedFrog$214
+D$1$CanHop$214
+E$1$Object$214
+F$0$Long$214
+A$0$[55.&nbsp;88]&nbsp;[55,&nbsp;88]$314
+B$0$[55.&nbsp;88]&nbsp;[88,&nbsp;55]$314
+C$1$[88.&nbsp;55]&nbsp;[55,&nbsp;88]$314
+D$0$[88.&nbsp;55]&nbsp;[88,&nbsp;55]$314
+E$0$The&nbsp;code&nbsp;does&nbsp;not&nbsp;compile.$314
+F$0$A&nbsp;runtime&nbsp;exception&nbsp;is&nbsp;thrown.$314
+A$0$Line&nbsp;4&nbsp;does&nbsp;not&nbsp;compile.$414
+B$0$Line&nbsp;5&nbsp;does&nbsp;not&nbsp;compile.$414
+C$0$Line&nbsp;6&nbsp;does&nbsp;not&nbsp;compile.$414
+D$1$Line&nbsp;7&nbsp;does&nbsp;not&nbsp;compile.$414
+E$0$Line&nbsp;8&nbsp;does&nbsp;not&nbsp;compile.$414
+F$0$The&nbsp;code&nbsp;throws&nbsp;an&nbsp;exception.$414
+G$0$The&nbsp;code&nbsp;compiles&nbsp;and&nbsp;prints&nbsp;1.$414
+A$0$//&nbsp;leave&nbsp;line&nbsp;blank$614
+B$0$e&nbsp;=&nbsp;new&nbsp;Exception();$614
+C$0$e&nbsp;=&nbsp;new&nbsp;RuntimeException();$614
+D$0$e&nbsp;=&nbsp;new&nbsp;SneezeException();$614
+E$0$e&nbsp;=&nbsp;new&nbsp;SniffleException();$614
+F$1$None&nbsp;of&nbsp;the&nbsp;above;&nbsp;the&nbsp;code&nbsp;does&nbsp;not&nbsp;compile.$614
+A$0$It&nbsp;outputs&nbsp;20&nbsp;85.$714
+B$0$It&nbsp;outputs&nbsp;103&nbsp;85.$714
+C$0$It&nbsp;outputs&nbsp;20&nbsp;103.$714
+D$1$The&nbsp;code&nbsp;will&nbsp;not&nbsp;compile.$714
+E$0$It&nbsp;compiles&nbsp;but&nbsp;throws&nbsp;an&nbsp;exception&nbsp;at&nbsp;runtime.$714
+F$0$The&nbsp;output&nbsp;cannot&nbsp;be&nbsp;determined&nbsp;ahead&nbsp;of&nbsp;time.$714
