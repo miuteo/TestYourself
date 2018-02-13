@@ -8,6 +8,7 @@ import {Answer} from '../answer';
 import {Variant} from '../answer';
 import {UserVariantService} from '../user-variant/user-variant.service';
 import {UserVariant} from '../user-variant';
+import {JhiAlertService} from 'ng-jhipster';
 
 @Component({
     selector : 'jhi-exam-resolve',
@@ -27,7 +28,8 @@ export class ExamResolveComponent implements OnInit {
         private examService: ExamService,
         private route: ActivatedRoute,
         private router: Router,
-        private userVariantService: UserVariantService
+        private userVariantService: UserVariantService,
+        private jhiAlertService: JhiAlertService
     ) {
         this.currentAnswers = new Map();
         this.isAlreadyAnswered = new Set();
@@ -38,6 +40,7 @@ export class ExamResolveComponent implements OnInit {
             .subscribe( (params) => {
            this.load();
         });
+        this.jhiAlertService.success(`hello test`);
     }
 
     load() {
@@ -71,23 +74,24 @@ export class ExamResolveComponent implements OnInit {
         this.userVariantService.createBulk(userVariantArray)
             .subscribe((params) => {
                 this.exam.noOfQuestionsAnswered++;
-            });
-        this.currentAnswers.clear();
-        this.isAnswerSelected = false;
-        let index: number;
-        this.isAlreadyAnswered.add(this.currentUserAnswer.id);
-        if (this.isAlreadyAnswered.size === this.exam.userAnswers.length) {
-            this.correctExam();
-            return;
-        }
-        index = this.exam.userAnswers.indexOf(this.currentUserAnswer) + 1;
-        if (index >= this.exam.userAnswers.length) {
-            index = 0;
-        }
-        this.currentUserAnswer  = this.exam.userAnswers[index];
-        this.isAnswerSelected = this.isAnyAnswerSelected();
+                this.currentAnswers.clear();
+                this.isAnswerSelected = false;
+                let index: number;
+                this.isAlreadyAnswered.add(this.currentUserAnswer.id);
+                if (this.isAlreadyAnswered.size === this.exam.userAnswers.length) {
+                    this.correctExam();
+                    return;
+                }
+                index = this.exam.userAnswers.indexOf(this.currentUserAnswer) + 1;
+                if (index >= this.exam.userAnswers.length) {
+                    index = 0;
+                }
+                this.currentUserAnswer  = this.exam.userAnswers[index];
+                this.isAnswerSelected = this.isAnyAnswerSelected();
+            } );
+
     }
-    negateIsCorect(answer: Answer) {
+    negateIsCorrect(answer: Answer) {
 
         if (this.currentAnswers.has(answer.id)) {
             this.currentAnswers.delete(answer.id);

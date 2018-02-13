@@ -3,6 +3,8 @@ package com.mycompany.myapp.web.rest;
 import com.mycompany.myapp.TestYourselfApp;
 
 import com.mycompany.myapp.domain.UserVariant;
+import com.mycompany.myapp.repository.AnswerRepository;
+import com.mycompany.myapp.repository.UserAnswerRepository;
 import com.mycompany.myapp.repository.UserVariantRepository;
 import com.mycompany.myapp.web.rest.errors.ExceptionTranslator;
 
@@ -45,6 +47,9 @@ public class UserVariantResourceIntTest {
     private UserVariantRepository userVariantRepository;
 
     @Autowired
+    private UserAnswerRepository userAnswerRepository;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -63,7 +68,7 @@ public class UserVariantResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final UserVariantResource userVariantResource = new UserVariantResource(userVariantRepository);
+        final UserVariantResource userVariantResource = new UserVariantResource(userVariantRepository,userAnswerRepository);
         this.restUserVariantMockMvc = MockMvcBuilders.standaloneSetup(userVariantResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
