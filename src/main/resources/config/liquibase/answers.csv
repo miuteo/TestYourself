@@ -1,157 +1,193 @@
-VARIANT|IS_CORECT|CONTENT|QUESTION_ID
-A|1|Success|101
-B|0|Failure|101
-C|0|The hashCode() method fails to compile.|101
-D|0|The equals() method fails to compile.|101
-E|0|Another line of code fails to compile.|101
-F|0|A runtime exception is thrown.|101
-A|0|If equals(null) is called, the method should throw an exception.|115
-B|1|If equals(null) is called, the method should return false.|115
-C|0|If equals(null) is called, the method should return true.|115
-D|0|If equals() is passed the wrong type, the method should throw an exception.|115
-E|1|If equals() is passed the wrong type, the method should return false.|115
-F|0|If equals() is passed the wrong type, the method should return true.|115
-A|1|A reference to an object may be cast to a subclass of the object without an explicit cast.|215
-B|1|If a method takes a class that is the superclass of three different object references, then any of those objects may be passed as a parameter to the method.|215
-C|1|A reference to an object may be cast to a superclass of the object without an explicit cast.|215
-D|0|All cast exceptions can be detected at compile time.|215
-E|0|By defining a public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime.|215
-A|0|0|315
-B|0|1|315
-C|0|2|315
-D|1|The result is undefined.|315
-E|0|The code does not compile|315
-F|0|A runtime exception is thrown|315
-A|0|Map&lt;boolean, List&lt;String&gt;&gt;|415
-B|0|Map&lt;Boolean, Map&lt;String&gt;&gt;|415
-C|0|Map&lt;Long, TreeSet&lt;String&gt;&gt;|415
-D|1|Map&lt;Boolean, List&lt;String&gt;&gt;|415
-E|1|Map&lt;Boolean, Set&lt;String&gt;&gt;|415
-F|0|None of the above|415
-A|0|One|615
-B|1|Two|615
-C|0|Three|615
-D|0|Four|615
-E|1|Five|615
-F|0|Six|615
-A|0|a -&gt; {return 10;}|715
-B|0|() -&gt; {String s = &quot;&quot;;}|715
-C|1|() -&gt; 5|715
-D|0|() -&gt; {return null}|715
-E|1|() -&gt; &quot;The&quot; + &quot;Zoo&quot;|715
-F|0|(int count) -&gt; count+1|715
-G|1|() -&gt; {System.out.println(&quot;Giraffe&quot;); return 10;}|715
-A|0|Inner in = new Inner();|116
-B|0|Inner in = Outer.new Inner();|116
-C|0|Outer.Inner in = new Outer.Inner();|116
-D|0|Outer.Inner in = new Outer().Inner();|116
-E|1|Outer.Inner in = new Outer().new Inner();|116
-F|0|Outer.Inner in = Outer.new Inner();|116
-A|0|It compiles and runs without issue.|216
-B|0|The code will not compile because of line 2.|216
-C|0|The code will not compile because of line 3.|216
-D|0|The code will not compile because of line 4.|216
-E|0|The code will not compile because of lines 2 and 3.|216
-F|1|The code will not compile because of lines 3 and 4.|216
-A|1|Comparable is in the java.util package.|316
-B|1|Comparator is in the java.util package.|316
-C|0|compare() is in the Comparable interface.|316
-D|1|compare() is in the Comparator interface.|316
-E|0|compare() takes one method parameter.|316
-F|1|compare() takes two method parameters.|316
-A|0|{} {}|416
-B|0|{} {false=[], true=[]}|416
-C|1|{false=[], true=[]} {}|416
-D|0|{false=[], true=[]} {false=[], true=[]}|416
-E|0|The code does not compile.|416
-F|0|An exception is thrown.|416
-A|0|TWF|616
-B|0|TWDF|616
-C|1|TWDEF|616
-D|0|TWF followed by an exception|616
-E|0|TWDF followed by an exception|616
-F|0|TWEF followed by an exception|616
-G|0|The code does not compile.|616
-A|0|It compiles and outputs the two numbers, followed by Printed.|716
-B|0|The code will not compile because of line b1.|716
-C|0|The code will not compile because of line b2.|716
-D|0|The code will not compile because of line b3.|716
-E|0|The code will not compile because of line b4.|716
-F|1|It compiles but the output cannot be determined ahead of time.|716
-G|0|It compiles but throws an exception at runtime.|716
-H|1|It compiles but waits forever at runtime.|716
-A|0|Compiler error on line 2.|117
-B|1|Compiler error on line 3.|117
-C|1|Compiler error on line 5.|117
-D|0|Compiler error on line 8.|117
-E|0|Compiler error on line 12.|117
-F|0|Compiler error on another line.|117
-G|0|The code compiles successfully.|117
-A|0|All instance variables are marked final.|217
-B|1|boolean instance variables are accessed with is or get.|217
-C|1|All instance variables are marked private.|217
-D|0|They implement the JavaBean interface.|217
-E|0|Variables are created using lazy instantiation.|217
-F|1|The first letter of the any getter/setter, after the get, set, or is prefix, must be uppercase.|217
-A|0|On line 1, fill in with &lt;&gt;.|317
-B|1|On line 1, fill in with &lt;T&gt;.|317
-C|0|On line 1, fill in with &lt;?&gt;.|317
-D|1|On line 3, fill in with &lt;&gt;.|317
-E|0|On line 3, fill in with &lt;T&gt;.|317
-F|0|On line 3, fill in with &lt;?&gt;.|317
-A|0|BiFunction&lt;Integer&gt; f = x -&gt; x*x;|417
-B|0|BiFunction&lt;Integer, Integer&gt; f = x -&gt; x*x;|417
-C|0|BinaryOperator&lt;Integer, Integer&gt; f = x -&gt; x*x;|417
-D|0|Function&lt;Integer&gt; f = x -&gt; x*x;|417
-E|1|Function&lt;Integer, Integer&gt; f = x -&gt; x*x;|417
-F|0|None of the above|417
-A|1|AutoCloseable|617
-B|1|Closeable|617
-C|0|Exception|617
-D|0|RuntimeException|617
-E|0|Serializable|617
-A|0|It outputs 100 99.|717
-B|1|It outputs 100 100.|717
-C|0|The output cannot be determined ahead of time.|717
-D|0|The code will not compile because of line w1.|717
-E|0|The code will not compile because of line w2.|717
-F|0|The code will not compile because of line w3.|717
-G|0|The code will not compile because of line w2.|717
-A|0|fish|118
-B|0|FISH|118
-C|0|0|118
-D|0|1|118
-E|0|false|118
-F|0|true|118
-G|1|The code does not compiles.|118
-A|1|Inheritance supports access to protected variables.|218
-B|1|Object composition tends to promote greater code reuse than inheritance.|218
-C|0|Inheritance relies on the has-a principle.|218
-D|0|Object composition supports method overriding at runtime.|218
-E|1|Object composition requires a class variable to be declared public or accessible from a public method to be used by a class in a different package.|218
-F|0|Object composition is always preferred to inheritance.|218
-A|1|A a1 = new A();|318
-B|1|A a2 = new B();|318
-C|1|A a3 = new C();|318
-D|0|C c1 = new A();|318
-E|0|C c2 = new B();|318
-F|0|C c1 = new C();|318
-A|0|1|418
-B|0|2|418
-C|0|2.4|418
-D|1|1.2 and 2.4|418
-E|0|There is no output|418
-F|0|The code does not compile|418
-G|0|An exception is thrown|418
-A|0|Exception, AutoCloseable|618
-B|1|Exception, Closeable|618
-C|0|IllegalStateException, AutoCloseable|618
-D|0|IllegalStateException, Closeable|618
-E|0|IOException, AutoCloseable|618
-F|0|IOException, Closeable|618
-A|0|It outputs Stock Room Full!|718
-B|0|The code will not compile because of line j1.|718
-C|0|The code will not compile because of line j2.|718
-D|0|The code will not compile because of line j3.|718
-E|0|It compiles but throws an exception at runtime.|718
-F|1|It compiles but waits forever at runtime.|718
+VARIANT$IS_CORECT$CONTENT$QUESTION_ID
+A$1$Success$101
+B$0$Failure$101
+C$0$The hashCode() method fails to compile.$101
+D$0$The equals() method fails to compile.$101
+E$0$Another line of code fails to compile.$101
+F$0$A runtime exception is thrown.$101
+A$0$If equals(null) is called, the method should throw an exception.$115
+B$1$If equals(null) is called, the method should return false.$115
+C$0$If equals(null) is called, the method should return true.$115
+D$0$If equals() is passed the wrong type, the method should throw an exception.$115
+E$1$If equals() is passed the wrong type, the method should return false.$115
+F$0$If equals() is passed the wrong type, the method should return true.$115
+A$1$A reference to an object may be cast to a subclass of the object without an explicit cast.$215
+B$1$If a method takes a class that is the superclass of three different object references, then any of those objects may be passed as a parameter to the method.$215
+C$1$A reference to an object may be cast to a superclass of the object without an explicit cast.$215
+D$0$All cast exceptions can be detected at compile time.$215
+E$0$By defining a public instance method in the superclass, you guarantee that the specific method will be called in the parent class at runtime.$215
+A$0$0$315
+B$0$1$315
+C$0$2$315
+D$1$The result is undefined.$315
+E$0$The code does not compile$315
+F$0$A runtime exception is thrown$315
+A$0$Map&lt;boolean, List&lt;String&gt;&gt;$415
+B$0$Map&lt;Boolean, Map&lt;String&gt;&gt;$415
+C$0$Map&lt;Long, TreeSet&lt;String&gt;&gt;$415
+D$1$Map&lt;Boolean, List&lt;String&gt;&gt;$415
+E$1$Map&lt;Boolean, Set&lt;String&gt;&gt;$415
+F$0$None of the above$415
+A$0$One$615
+B$1$Two$615
+C$0$Three$615
+D$0$Four$615
+E$1$Five$615
+F$0$Six$615
+A$0$a -&gt; {return 10;}$715
+B$0$() -&gt; {String s = &quot;&quot;;}$715
+C$1$() -&gt; 5$715
+D$0$() -&gt; {return null}$715
+E$1$() -&gt; &quot;The&quot; + &quot;Zoo&quot;$715
+F$0$(int count) -&gt; count+1$715
+G$1$() -&gt; {System.out.println(&quot;Giraffe&quot;); return 10;}$715
+A$0$Inner in = new Inner();$116
+B$0$Inner in = Outer.new Inner();$116
+C$0$Outer.Inner in = new Outer.Inner();$116
+D$0$Outer.Inner in = new Outer().Inner();$116
+E$1$Outer.Inner in = new Outer().new Inner();$116
+F$0$Outer.Inner in = Outer.new Inner();$116
+A$0$It compiles and runs without issue.$216
+B$0$The code will not compile because of line 2.$216
+C$0$The code will not compile because of line 3.$216
+D$0$The code will not compile because of line 4.$216
+E$0$The code will not compile because of lines 2 and 3.$216
+F$1$The code will not compile because of lines 3 and 4.$216
+A$1$Comparable is in the java.util package.$316
+B$1$Comparator is in the java.util package.$316
+C$0$compare() is in the Comparable interface.$316
+D$1$compare() is in the Comparator interface.$316
+E$0$compare() takes one method parameter.$316
+F$1$compare() takes two method parameters.$316
+A$0${} {}$416
+B$0${} {false=[], true=[]}$416
+C$1${false=[], true=[]} {}$416
+D$0${false=[], true=[]} {false=[], true=[]}$416
+E$0$The code does not compile.$416
+F$0$An exception is thrown.$416
+A$0$TWF$616
+B$0$TWDF$616
+C$1$TWDEF$616
+D$0$TWF followed by an exception$616
+E$0$TWDF followed by an exception$616
+F$0$TWEF followed by an exception$616
+G$0$The code does not compile.$616
+A$0$It compiles and outputs the two numbers, followed by Printed.$716
+B$0$The code will not compile because of line b1.$716
+C$0$The code will not compile because of line b2.$716
+D$0$The code will not compile because of line b3.$716
+E$0$The code will not compile because of line b4.$716
+F$1$It compiles but the output cannot be determined ahead of time.$716
+G$0$It compiles but throws an exception at runtime.$716
+H$1$It compiles but waits forever at runtime.$716
+A$0$Compiler error on line 2.$117
+B$1$Compiler error on line 3.$117
+C$1$Compiler error on line 5.$117
+D$0$Compiler error on line 8.$117
+E$0$Compiler error on line 12.$117
+F$0$Compiler error on another line.$117
+G$0$The code compiles successfully.$117
+A$0$All instance variables are marked final.$217
+B$1$boolean instance variables are accessed with is or get.$217
+C$1$All instance variables are marked private.$217
+D$0$They implement the JavaBean interface.$217
+E$0$Variables are created using lazy instantiation.$217
+F$1$The first letter of the any getter/setter, after the get, set, or is prefix, must be uppercase.$217
+A$0$On line 1, fill in with &lt;&gt;.$317
+B$1$On line 1, fill in with &lt;T&gt;.$317
+C$0$On line 1, fill in with &lt;?&gt;.$317
+D$1$On line 3, fill in with &lt;&gt;.$317
+E$0$On line 3, fill in with &lt;T&gt;.$317
+F$0$On line 3, fill in with &lt;?&gt;.$317
+A$0$BiFunction&lt;Integer&gt; f = x -&gt; x*x;$417
+B$0$BiFunction&lt;Integer, Integer&gt; f = x -&gt; x*x;$417
+C$0$BinaryOperator&lt;Integer, Integer&gt; f = x -&gt; x*x;$417
+D$0$Function&lt;Integer&gt; f = x -&gt; x*x;$417
+E$1$Function&lt;Integer, Integer&gt; f = x -&gt; x*x;$417
+F$0$None of the above$417
+A$1$AutoCloseable$617
+B$1$Closeable$617
+C$0$Exception$617
+D$0$RuntimeException$617
+E$0$Serializable$617
+A$0$It outputs 100 99.$717
+B$1$It outputs 100 100.$717
+C$0$The output cannot be determined ahead of time.$717
+D$0$The code will not compile because of line w1.$717
+E$0$The code will not compile because of line w2.$717
+F$0$The code will not compile because of line w3.$717
+G$0$The code will not compile because of line w2.$717
+A$0$fish$118
+B$0$FISH$118
+C$0$0$118
+D$0$1$118
+E$0$false$118
+F$0$true$118
+G$1$The code does not compiles.$118
+A$1$Inheritance supports access to protected variables.$218
+B$1$Object composition tends to promote greater code reuse than inheritance.$218
+C$0$Inheritance relies on the has-a principle.$218
+D$0$Object composition supports method overriding at runtime.$218
+E$1$Object composition requires a class variable to be declared public or accessible from a public method to be used by a class in a different package.$218
+F$0$Object composition is always preferred to inheritance.$218
+A$1$A a1 = new A();$318
+B$1$A a2 = new B();$318
+C$1$A a3 = new C();$318
+D$0$C c1 = new A();$318
+E$0$C c2 = new B();$318
+F$0$C c1 = new C();$318
+A$0$1$418
+B$0$2$418
+C$0$2.4$418
+D$1$1.2 and 2.4$418
+E$0$There is no output$418
+F$0$The code does not compile$418
+G$0$An exception is thrown$418
+A$0$Exception, AutoCloseable$618
+B$1$Exception, Closeable$618
+C$0$IllegalStateException, AutoCloseable$618
+D$0$IllegalStateException, Closeable$618
+E$0$IOException, AutoCloseable$618
+F$0$IOException, Closeable$618
+A$0$It outputs Stock Room Full!$718
+B$0$The code will not compile because of line j1.$718
+C$0$The code will not compile because of line j2.$718
+D$0$The code will not compile because of line j3.$718
+E$0$It compiles but throws an exception at runtime.$718
+F$1$It compiles but waits forever at runtime.$718
+A$1$public void toddle() {}$119
+B$0$public void Toddle() {}$119
+C$1$public final void toddle() {}$119
+D$0$public static void toddle() {}$119
+E$0$public void toddle() throws Exception {}$119
+F$0$public void toddle(boolean fall) {}$119
+A$0$Create read-only objects that are thread-safe.$219
+B$1$Manage a reusable cache of objects.$219
+C$0$Ensure that all objects are lazily instantiated.$219
+D$1$Manage write access to a log file.$219
+E$1$Provide central access to application configuration data.$219
+F$0$Allow multiple instances of a static object to be managed in memory.$219
+A$1$If we fill in the blank with List, the output is [10].$319
+B$0$If we fill in the blank with List, the output is [10, 12].$319
+C$0$If we fill in the blank with Queue, the output is [10].$319
+D$1$If we fill in the blank with Queue, the output is [10, 12].$319
+E$0$The code does not compile in either scenario.$319
+F$0$A runtime exception is thrown.$319
+A$1$BooleanSupplier$419
+B$0$CharSupplier$419
+C$1$DoubleSupplier$419
+D$0$FloatSupplier$419
+E$1$IntSupplier$419
+F$0$StringSupplier$419
+A$0$Exception$619
+B$0$RuntimeException$619
+C$0$SQLException$619
+D$1$SQLException | IOException$619
+E$0$SQLException | RuntimeException$619
+A$1$It compiles without issue.$719
+B$0$The code will not compile because of line k2.$719
+C$0$The code will not compile because of line k3.$719
+D$0$The lock locks acquired on k1 and k4 are on the same object.$719
+E$0$The class correctly prevents concurrency issues for the value of tickets when accessed by multiple threads.$719
+F$1$At most one instance of TicketManager will be created in the application.$719
+

@@ -42,7 +42,7 @@
         </createTable>
         <loadData encoding="UTF-8"
                   file="config/liquibase/answers.csv"
-                  separator="|"
+                  separator="$"
                   tableName="answer"/>
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
