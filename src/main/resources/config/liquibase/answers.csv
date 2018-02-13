@@ -190,4 +190,38 @@ C$0$The code will not compile because of line k3.$719
 D$0$The lock locks acquired on k1 and k4 are on the same object.$719
 E$0$The class correctly prevents concurrency issues for the value of tickets when accessed by multiple threads.$719
 F$1$At most one instance of TicketManager will be created in the application.$719
-
+A$0$toddle,toddle,$120
+B$0$toddle,walk,$120
+C$1$walk,toddle,$120
+D$0$walk,walk,$120
+E$0$The code does not compile.$120
+F$0$A runtime exception is thrown.$120
+G$0$$120
+H$0$$120
+A$1$It compiles without issue.$220
+B$0$The code will not compile because of line 2.$220
+C$0$The code will not compile because of line 4.$220
+D$0$The code will not compile because of line 5.$220
+E$0$The code will not compile because of lines 2 and 5.$220
+F$0$The code will not compile because the class Falcon doesn&#x2019;t implement the interface methods.$220
+A$0$false$320
+B$0$true$320
+C$0$Compiler error on line 4.$320
+D$0$Compiler error on line 5.$320
+E$1$Compiler error on line 7.$320
+F$0$A runtime exception is thrown.$320
+A$0$IntStream.range(1, 6);$420
+B$1$IntStream.range(1, 6).forEach(System.out::println);$420
+C$0$IntStream.range(1, 6).mapToObj(1 -&gt; i).forEach(System.out::println);$420
+D$0$None of the above is equivalent.$420
+E$0$The provided code does not compile.$420
+A$0$One or more constructors must be coded.$620
+B$0$Only checked exceptions may be created.$620
+C$0$Only unchecked exceptions may be created.$620
+D$0$The toString() method must be coded.$620
+E$1$None of the above.$620
+A$1$By itself, concurrency does not guarantee which task will be completed first.$720
+B$0$Concurrency always improves the performance of an application.$720
+C$0$Computers with a single processor do not benefit from concurrency.$720
+D$1$Applications with many resource-heavy tasks tend to benefit more from concurrency than ones with CPU-intensive tasks.$720
+E$0$Concurrent tasks do not share the same memory.$720
