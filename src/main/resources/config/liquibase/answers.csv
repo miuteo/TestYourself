@@ -300,3 +300,39 @@ D$0$The code will not compile because of line 7.$713
 E$0$The code will not compile because of line 8.$713
 F$0$It compiles but throws an exception at runtime.$713
 G$1$The collect() operation is always executed in a single-threaded fashion.$713
+A$0$Inside Browser$112
+B$0$Inside Firefox$112
+C$0$Inside IE$112
+D$0$The code does not compile.$112
+E$1$A runtime exception is thrown.$112
+A$0$ok$212
+B$0$too high$212
+C$1$Compiler error on line x1.$212
+D$0$Compiler error on line x2.$212
+E$0$Compiler error on a different line.$212
+F$0$A runtime exception is thrown.$212
+A$1$Helper.printException(new FileNotFoundException(&quot;A&quot;));$312
+B$1$Helper.printException(new Exception(&quot;B&quot;));$312
+C$0$Helper.&lt;Throwable&gt;printException(new Exception(&quot;C&quot;));$312
+D$1$Helper.&lt;NullPointerException&gt;printException(new NullPointerException(&quot;D&quot;));$312
+E$0$Helper.printException(new Throwable(&quot;E&quot;));$312
+A$1$BiConsumer&lt;String, String&gt;$412
+B$0$BiFunction&lt;String, String&gt;$412
+C$0$BinaryConsumer&lt;String, String&gt;$412
+D$0$BinaryFunction&lt;String, String&gt;$412
+E$0$Consumer&lt;String&gt;$412
+F$1$Supplier&lt;String&gt;$412
+G$1$UnaryOperator&lt;String&gt;$412
+H$0$UnaryOperator&lt;String, String&gt;$412
+A$1$//leave line blank$612
+B$0$e = new Exception();$612
+C$0$e = new RuntimeException();$612
+D$1$e = new SneezeException();$612
+E$1$e = new SniffleException();$612
+F$0$None of the above; the code does not compile.$612
+A$0$It compiles and runs without issue.$712
+B$0$The code will not compile because of m1.$712
+C$0$The code will not compile because of m2.$712
+D$0$The code will not compile because of m3.$712
+E$1$It compiles but throws an exception at runtime.$712
+F$0$It compiles but hangs at runtime.$712
