@@ -262,3 +262,41 @@ C$0$It&nbsp;outputs&nbsp;20&nbsp;103.$714
 D$1$The&nbsp;code&nbsp;will&nbsp;not&nbsp;compile.$714
 E$0$It&nbsp;compiles&nbsp;but&nbsp;throws&nbsp;an&nbsp;exception&nbsp;at&nbsp;runtime.$714
 F$0$The&nbsp;output&nbsp;cannot&nbsp;be&nbsp;determined&nbsp;ahead&nbsp;of&nbsp;time.$714
+A$0$The output is 0.$113
+B$1$The output is 3.$113
+C$0$The output is 7.$113
+D$0$c instanceof Mammal does not compile.$113
+E$0$c instanceof Furry does not compile.$113
+F$0$null instanceof Chipmunk does not compile.$113
+A$0$They don’t define any getter methods.$213
+B$1$All of the instance variables marked private and final.$213
+C$1$They don’t define any setter methods.$213
+D$0$They mark all instance variables static.$213
+E$1$They prevent methods from being overridden.$213
+F$0$All getter methods are marked synchronized.$213
+A$0$ArrayDeque&lt;?&gt; list = new ArrayDeque&lt;String&gt;();$313
+B$1$ArrayList&lt;? super Date&gt; list = new ArrayList&lt;Date&gt;();$313
+C$0$List&lt;?&gt; list = new ArrayList&lt;?&gt;();$313
+D$0$List&lt;Exception&gt; list = new LinkedList&lt;java.io.IOException&gt;();$313
+E$1$Vector&lt;? extends Number&gt; list = new Vector&lt;Integer&gt;();$313
+F$0$None of the above$313
+A$0$The code compiles and prints 123456.$413
+B$0$The code compiles and prints 234567.$413
+C$0$The code compiles but does not print anything.$413
+D$0$The code compiles but prints stream references.$413
+E$0$The code runs infinitely.$413
+F$1$The code does not compile.$413
+G$0$The code throws an exception$413
+A$1$// leave line blank$613
+B$0$e = new Exception();$613
+C$0$e = new RuntimeException();$613
+D$0$e = new SneezeException();$613
+E$0$e = new SniffleException();$613
+F$0$None of the above; the code does not compile.$613
+A$1$It outputs 3 4.$713
+B$0$It outputs 4 3.$713
+C$0$The code will not compile because of line 6.$713
+D$0$The code will not compile because of line 7.$713
+E$0$The code will not compile because of line 8.$713
+F$0$It compiles but throws an exception at runtime.$713
+G$1$The collect() operation is always executed in a single-threaded fashion.$713
