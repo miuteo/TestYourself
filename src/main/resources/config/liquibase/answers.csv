@@ -375,3 +375,74 @@ E$0$The code does not compile because of line t2.$711
 F$1$The code may produce a deadlock at runtime.$711
 G$0$The code may produce a livelock at runtime.$711
 H$0$It compiles but throws an exception at runtime.$711
+A$0$x is 0.$109
+B$1$x is 24.$109
+C$0$Line 6 generates a compiler error.$109
+D$0$Line 8 generates a compiler error.$109
+E$0$Line 11 generates a compiler error.$109
+F$0$An exception is thrown.$109
+A$0$The output is 5.$108
+B$0$The output is 10.$108
+C$1$Line 4 generates a compiler error.$108
+D$0$Line 8 generates a compiler error.$108
+E$0$Line 9 generates a compiler error.$108
+F$0$An exception is thrown.$108
+A$0$vanilla$107
+B$0$chocolate$107
+C$0$strawberry$107
+D$0$missing flavor$107
+E$1$The code does not compile.$107
+F$0$An exception is thrown.$107
+A$0$0$106
+B$1$1$106
+C$0$9$106
+D$0$CHOCOLATE$106
+E$0$The code does not compile due to a missing semicolon.$106
+F$0$The code does not compile for a different reason.$106
+A$1$If a.equals(b) is true, a.hashCode() == b.hashCode() is always true.$105
+B$0$If a.equals(b) is true, a.hashCode() == b.hashCode() is sometimes but not always true.$105
+C$0$If a.equals(b) is false, a.hashCode() == b.hashCode() can never be true.$105
+D$1$If a.equals(b) is false, a.hashCode() == b.hashCode() can sometimes be true.$105
+A$0$The class does not compile.$104
+B$0$The class compiles but has an improper equals() method.$104
+C$1$The class compiles but has an improper hashCode() method.$104
+D$0$The class compiles and has proper equals() and hashCode() methods.$104
+A$0$There is no output.$103
+B$0$s1 == s2$103
+C$1$s1.equals(s2)$103
+D$0$Both B and C.$103
+E$0$The code does not compile.$103
+F$0$The code throws a runtime exception.$103
+A$0$The code compiles successfully, and one bytecode file is generated: Book.class.$110
+B$0$The code compiles successfully, and two bytecode files are generated: Book.class and BookReader.class.$110
+C$1$The code compiles successfully, and two bytecode files are generated: Book.class and Book&#36;BookReader.class.$110
+D$0$A compiler error occurs on line 3.$110
+E$0$A compiler error occurs on line 5.$110
+A$0$The code compiles without issue.$210
+B$0$The code will not compile because of line 5.$210
+C$0$The code will not compile because of line 6.$210
+D$1$The code will not compile because of line 8.$210
+E$0$The code will not compile because of line 9.$210
+A$1$Abb aab 123$310
+B$0$aab Abb 123$310
+C$0$123 Abb aab$310
+D$0$123 aab Abb$310
+E$0$The code does not compile.$310
+F$0$A runtime exception is thrown.$310
+A$0$L, N$410
+B$0$L, N, O$410
+C$0$L, N, M$410
+D$0$L, N, M, O$410
+E$0$L, O, M$410
+F$1$N, M$410
+G$0$N, O$410
+A$1$Line 5 does not compile.$610
+B$0$Lines 6 and 7 do not compile because they are missing the String message.$610
+C$0$Lines 6 and 7 do not compile because they are missing parentheses.$610
+D$0$Line 6 is an appropriate use of an assertion.$610
+E$1$Line 7 is an appropriate use of an assertion.$610
+A$0$It compiles and runs without issue, outputting the total length of all strings in the stream.$710
+B$0$The code will not compile because of line q1.$710
+C$1$The code will not compile because of line q2.$710
+D$0$The code will not compile because of line q3.$710
+E$0$It compiles but throws an exception at runtime.$710
