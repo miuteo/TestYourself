@@ -446,3 +446,58 @@ B$0$The code will not compile because of line q1.$710
 C$1$The code will not compile because of line q2.$710
 D$0$The code will not compile because of line q3.$710
 E$0$It compiles but throws an exception at runtime.$710
+A$0$A design principle is focused on solving a specific commonly occurring problem.$201
+B$0$Design principles and design patterns are the same thing.$201
+C$1$Design principles are often applied throughout an application, whereas design patterns are applied to solve specific problems.$201
+D$0$Design patterns can only be applied to static classes.$201
+E$1$Design principles and design patterns tend to produce code that is easier to maintain and easier for other developers to read.$201
+A$0$It compiles and runs without issue.$202
+B$0$The code will not compile because of line 2.$202
+C$0$The code will not compile because of line 4.$202
+D$0$The code will not compile because of line 5.$202
+E$1$The code will not compile because of line 8.$202
+F$0$It compiles but throws an exception at runtime.$202
+A$1$Climb$203
+B$0$Swim$203
+C$0$ArcticMountainClimb$203
+D$1$MountainClimb$203
+E$0$None of these are valid functional interfaces.$203
+A$1$() -&gt; &quot;&quot;$204
+B$0$x,y -&gt; x+y$204
+C$0$(Coyote y) -&gt; return 0;$204
+D$1$(Camel c) -&gt; {return;}$204
+E$0$Wolf w -&gt; 39$204
+F$0$() -&gt;$204
+G$0$(Animal z, m) -&gt; a$204
+A$0$Singleton object can be replaced with encapsulated setter method.$205
+B$1$Requires constructor of singleton class to be private.$205
+C$0$Singleton object must be named instance.$205
+D$0$Singleton object may be private or protected.$205
+E$1$Ensures that there is only one instance of an object in memory.$205
+F$1$Requires a public static method to retrieve the instance of the singleton.$205
+A$1$match$206
+B$0$not match$206
+C$0$Compiler error on line h1.$206
+D$0$Compiler error on line h2.$206
+E$0$Compile error on line h3.$206
+F$0$A runtime exception is thrown.$206
+A$0$None; the immutable object pattern is properly implemented.$207
+B$0$Have Seal implement the Immutable interface.$207
+C$1$Mark name final and private.$207
+D$0$Add setters for name and List&lt;Seal&gt; friends.$207
+E$1$Replace the getFriends() method with methods that do not give the caller direct access to the List&lt;Seal&gt; friends.$207
+F$0$Change the type of List&lt;Seal&gt; to List&lt;Object&gt;.$207
+G$1$Make a copy of the List&lt;Seal&gt; friends in the constructor.$207
+H$1$Mark the Seal class final.$207
+A$0$They can extend other classes.$208
+B$0$They cannot be extended.$208
+C$1$They enable classes to have multiple inheritance.$208
+D$0$They can only contain abstract methods.$208
+E$0$They can be declared final.$208
+F$1$All members of an interface are public.$208
+A$0$None; the singleton pattern is properly implemented.$209
+B$0$Rename cheetahManager to instance.$209
+C$0$Rename getCheetahManager() to getInstance().$209
+D$1$Change the access modifier of cheetahManager from public to private.$209
+E$0$Mark cheetahManager final.$209
+F$1$Add synchronized to getCheetahManager().$209
