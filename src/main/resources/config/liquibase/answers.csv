@@ -501,3 +501,220 @@ C$0$Rename getCheetahManager() to getInstance().$209
 D$1$Change the access modifier of cheetahManager from public to private.$209
 E$0$Mark cheetahManager final.$209
 F$1$Add synchronized to getCheetahManager().$209
+A$0$Arrays$301
+B$1$ArrayList$301
+C$0$HashMap$301
+D$0$HashSet$301
+E$0$LinkedList$301
+A$0$ArrayList$302
+B$0$HashMap$302
+C$0$HashSet$302
+D$1$TreeMap$302
+E$0$TreeSet$302
+F$0$Vector$302
+A$0$onetwo$303
+B$0$onetwo7$303
+C$0$onetwo followed by an exception$303
+D$0$Compiler error on line 6$303
+E$1$Compiler error on line 7$303
+A$0$hello$304
+B$0$hellohi$304
+C$0$hellohiola$304
+D$0$hi$304
+E$1$hihello$304
+F$0$The code does not compile.$304
+G$0$An exception is thrown.$304
+A$0$HashSet&lt;Number&gt; hs = new HashSet&lt;Integer&gt;();$305
+B$1$HashSet&lt;? super ClassCastException&gt; set = new HashSet&lt;Exception&gt;();$305
+C$1$List&lt;String&gt; list = new Vector&lt;String&gt;();$305
+D$0$List&lt;Object&gt; values = new HashSet&lt;Object&gt;();$305
+E$1$List&lt;Object&gt; objects = new ArrayList&lt;? extends Object&gt;();$305
+F$0$Map&lt;String, ? extends Number&gt; hm = new HashMap&lt;String, Integer&gt;();$305
+A$0$hi$306
+B$0$hi followed by a runtime exception$306
+C$1$hithere$306
+D$0$Compiler error on line 4$306
+E$0$Compiler error on line 6$306
+F$0$Compiler error on line 7$306
+A$1$The code compiles successfully.$307
+B$0$The output is 8675null309.$307
+C$0$The output is 867586null309.$307
+D$1$The output is indeterminate.$307
+E$0$There is a compiler error on line 3.$307
+F$0$There is a compiler error on line 9.$307
+G$0$An exception is thrown.$307
+A$0$On$308
+B$0$one$308
+C$1$One$308
+D$0$ONE$308
+E$0$The code does not compile.$308
+F$0$An exception is thrown.$308
+A$0$map.add(&quot;pi&quot;, 3.14159);$309
+B$0$map.add(&quot;e&quot;, 2L);$309
+C$0$map.add(&quot;log(1)&quot;, new Double(0.0));$309
+D$0$map.add('x', new Double(123.4));$309
+E$1$None of the above$309
+A$0$12112$401
+B$0$212$401
+C$0$212112$401
+D$1$java.util.stream.ReferencePipeline$3@4517d9a3$401
+E$0$The code does not compile.$401
+F$0$An exception is thrown.$401
+G$0$The code hangs.$401
+A$0$true false$402
+B$0$true true$402
+C$0$java.util.stream.ReferencePipeline$3@4517d9a3$402
+D$0$The code does not compile.$402
+E$0$An exception is thrown.$402
+F$1$The code hangs.$402
+A$0$false true$403
+B$0$false false$403
+C$0$Java.util.stream.ReferencePipeline$3@4517d9a3$403
+D$0$The code does not compile.$403
+E$1$An exception is thrown.$403
+F$0$The code hangs.$403
+A$1$At most one terminal operation can exist in a stream pipeline.$404
+B$1$Terminal operations are a required part of the stream pipeline in order to get a result.$404
+C$0$Terminal operations have Stream as the return type.$404
+D$0$The referenced Stream may be used after the calling a terminal operation.$404
+E$0$The peek() method is an example of a terminal operation.$404
+A$1$collect()$405
+B$1$count()$405
+C$0$findFirst()$405
+D$0$map()$405
+E$0$peek()$405
+F$0$sum()$405
+A$1$allMatch$406
+B$0$anyMatch$406
+C$0$findAny$406
+D$0$findFirst$406
+E$0$noneMatch$406
+F$0$None of the above$406
+A$0$return list.stream()<br>.compare((a, b) -&gt; b.compareTo(a))<br>.collect(Collectors.toList());$407
+B$0$return list.stream()<br>.compare((a, b) -&gt; b.compareTo(a))<br>.sort();$407
+C$0$return list.stream()<br>.compareTo((a, b) -&gt; b.compareTo(a))<br>.collect(Collectors.toList());$407
+D$0$return list.stream()<br>.compareTo((a, b) -&gt; b.compareTo(a))<br>.sort();$407
+E$0$return list.stream()<br>.sorted((a, b) -&gt; b.compareTo(a))<br>.collect();$407
+F$1$return list.stream()<br>.sorted((a, b) -&gt; b.compareTo(a))<br>.collect(Collectors.toList());$407
+A$0$is.average() returns the type int.$408
+B$0$is.average() returns the type OptionalInt.$408
+C$0$is.findAny() returns the type int.$408
+D$1$is.findAny() returns the type OptionalInt.$408
+E$1$is.sum() returns the type int.$408
+F$0$is.sum() returns the type OptionalInt.$408
+A$0$if (opt.isPresent()) System.out.println(opt.get());$409
+B$1$if (opt.isPresent()) System.out.println(opt.getAsLong());$409
+C$0$opt.ifPresent(System.out.println)$409
+D$1$opt.ifPresent(System.out::println)$409
+E$0$None of these; the code does not compile.$409
+F$0$None of these; line 5 throws an exception at runtime.$409
+A$0$throw on line 5 and throw on line 6$601
+B$0$throw on line 5 and throws on line 6$601
+C$1$throws on line 5 and throw on line 6$601
+D$0$throws on line 5 and throws on line 6$601
+E$0$None of the above. SQLException is a checked exception and cannot be thrown.$601
+F$0$None of the above. SQLException is a runtime exception and cannot be thrown.$601
+A$0$Remove throws Exception from the declaration on line 2.$602
+B$1$Add throws Exception to the declaration on line 5.$602
+C$1$Change line 8 to } catch (Exception e) {}.$602
+D$0$Change line 8 to } finally {}.$602
+E$0$None of the above will make the code compile.$602
+F$0$The code already compiles as is.$602
+A$0$FileNotFoundException | IOException e$603
+B$0$ileNotFoundException e | IOException e$603
+C$0$FileNotFoundException | RuntimeException e$603
+D$0$FileNotFoundException e | RuntimeException e$603
+E$1$IOException | RuntimeException e$603
+F$0$IOException e | RuntimeException e$603
+A$1$A traditional try statement without a catch block requires a finally block.$604
+B$1$A traditional try statement without a finally block requires a catch block.$604
+C$0$A traditional try statement with only one statement can omit the {}.$604
+D$0$A try-with-resources statement without a catch block requires a finally block.$604
+E$0$A try-with-resources statement without a finally block requires a catch block.$604
+F$0$A try-with-resources statement with only one statement can omit the {}.$604
+A$0$TWF$605
+B$0$TWDF$605
+C$1$TWDEF$605
+D$0$TWF followed by an exception$605
+E$0$TWDF followed by an exception$605
+F$0$TWEF followed by an exception$605
+G$0$The code does not compile.$605
+A$0$TWF$606
+B$0$TWDF$606
+C$0$TWDEF$606
+D$0$TWF followed by an exception$606
+E$0$TWDF followed by an exception$606
+F$0$TWEF followed by an exception$606
+G$1$The code does not compile.$606
+A$0$hithere$607
+B$0$The assert statement throws an AssertionError.$607
+C$1$The code throws an ArrayIndexOutOfBoundsException.$607
+D$0$The code compiles and runs successfully, but there is no output.$607
+E$0$The code does not compile.$607
+A$0$java &ndash;da On$608
+B$1$java &ndash;ea On$608
+C$1$java -da -ea:On On$608
+D$0$java -ea -da:On On$608
+E$0$The code does not compile.$608
+A$1$assert n &lt; 0: &quot;OhNo&quot;;$609
+B$0$assert n &lt; 0, &quot;OhNo&quot;;$609
+C$0$assert n &lt; 0 (&quot;OhNo&quot;);$609
+D$1$assert(n &lt; 0): &quot;OhNo&quot;;$609
+E$0$assert(n &lt; 0, &quot;OhNo&quot;);$609
+A$0$new ParallelStream(s)$701
+B$0$c.parallel()$701
+C$0$s.parallelStream()$701
+D$1$c.parallelStream()$701
+E$0$new ParallelStream(c)$701
+F$1$s.parallel()$701
+A$1$Both can throw unchecked exceptions.$702
+B$0$Callable takes a generic method argument.$702
+C$1$Callable can throw a checked exception.$702
+D$1$Both can be implemented with lambda expressions.$702
+E$0$Runnable returns a generic type.$702
+F$1$Callable returns a generic type.$702
+G$0$Both methods return void.$702
+A$0$It compiles and runs without issue.$703
+B$1$Line w1$703
+C$1$Line w2$703
+D$0$Line w3$703
+E$0$Line w4$703
+F$0$It compiles but throws an exception at runtime.$703
+A$0$It outputs 100 100.$704
+B$0$It outputs 100 99.$704
+C$1$The output cannot be determined ahead of time.$704
+D$0$The code does not compile.$704
+E$0$It compiles but throws an exception at runtime.$704
+F$0$It compiles but enters an infinite loop at runtime.$704
+A$0$Livelock, Deadlock$705
+B$0$Deadlock, Starvation$705
+C$0$Race conditions, Deadlock$705
+D$1$Livelock, Race conditions$705
+E$0$Starvation, Race conditions$705
+F$0$Deadlock, Livelock$705
+A$0$The thread executor will throw an exception when a task is submitted that is over its thread limit.$706
+B$1$The task will be added to an internal queue and completed when there is an available thread.$706
+C$0$The thread executor will discard any task over its thread limit.$706
+D$0$The call to submit the task to the thread executor will wait until there is a thread available before continuing.$706
+E$0$The thread executor creates new temporary threads to complete the additional tasks.$706
+A$1$It outputs 3 6 4.$707
+B$0$It outputs 6 6 6.$707
+C$0$It outputs 6 3 4.$707
+D$0$The code does not compile.$707
+E$0$It compiles but throws an exception at runtime on line x1.$707
+F$0$It compiles but throws an exception at runtime on line x2.$707
+G$0$It compiles but enters an infinite loop at runtime.$707
+A$0$It outputs 1 6.$708
+B$0$It outputs 1 10.$708
+C$0$The code will not compile because of line y1.$708
+D$0$The code will not compile because of line y2.$708
+E$0$The code will not compile because of line y3.$708
+F$0$It compiles but throws an exception at runtime.$708
+G$1$The output cannot be determined ahead of time.$708
+H$0$It compiles but waits forever at runtime.$708
+A$1$The code correctly finds the minimum value in the array.$709
+B$0$MyTask inherits RecursiveAction.$709
+C$1$MyTask inherits RecursiveTask.$709
+D$0$The code produces a ForkJoinPool at runtime$709
+E$1$The class produces single-threaded performance at runtime.$709
+F$0$The code does not compile.$709
